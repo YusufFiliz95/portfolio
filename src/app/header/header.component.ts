@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+  isActive = false;
 
+  toggleActive() {
+    this.isActive = !this.isActive;
+  }
 }
+
+

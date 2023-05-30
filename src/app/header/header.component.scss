@@ -341,4 +341,14 @@ header {
       opacity: 1;
     }
   }
+
+  .email {
+    transition: text-shadow 200ms ease;
+  }
+
+  &:hover .email {
+    text-shadow: 0px 0px 10px rgba(89, 136, 255, 0.7);
+  }
 }
+
+

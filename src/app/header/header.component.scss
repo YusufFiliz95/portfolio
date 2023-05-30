@@ -117,10 +117,12 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
+
   span {
     width: 580px;
     text-align: center;
   }
+
   p {
     font-family: "Syne";
     font-weight: 700;
@@ -131,14 +133,55 @@ header {
     padding-bottom: 10px;
     cursor: pointer;
     position: relative;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 39px;
+      height: 52px;
+      border-bottom: 4px solid black;
+      border-left: 4px solid black;
+      transition: height 70ms ease-in-out, width 200ms ease-in-out 70ms, left 200ms ease-in-out 70ms;
+    }
+
+    &:hover::after {
+      left: 280px;
+      right: 0;
+      bottom: 0;
+      height: 0;
+      width: 280px;
+      animation: changeColor 0.5s ease-in-out 100ms forwards;
+    }
   }
-  p::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 39px;
-    height: 52px;
+}
+
+@keyframes changeColor {
+  0% {
+    border-bottom: 4px solid black;
+    border-left: 4px solid black;
+  }
+  50% {
+    border-bottom: 4px solid rgb(255, 155, 41);
+    border-left: 4px solid rgb(255, 155, 41);
+  }
+  100% {
+    border-bottom: 4px solid rgb(255, 155, 41);
+    border-left: 4px solid rgb(255, 155, 41);
+  }
+}
+
+@keyframes revertColor {
+  0% {
+    border-bottom: 4px solid rgb(255, 155, 41);
+    border-left: 4px solid rgb(255, 155, 41);
+  }
+  100% {
     border-bottom: 4px solid black;
     border-left: 4px solid black;
   }

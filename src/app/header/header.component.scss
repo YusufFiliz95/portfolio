@@ -109,6 +109,17 @@ header {
 
 .menu.active {
   transform: translateY(0);
+  .p-about {
+    animation: slideIn 0.8s forwards;
+  }
+
+  .p-skills {
+    animation: slideIn 0.7s forwards;
+  }
+
+  .p-portfolio {
+    animation: slideIn 0.5s forwards;
+  }
 }
 
 .menu-info {
@@ -166,6 +177,17 @@ header {
   }
 }
 
+@keyframes slideIn {
+  0% {
+    transform: translateX(-300%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 @keyframes changeColor {
   0% {
     border-bottom: 4px solid black;
@@ -216,9 +238,11 @@ header {
   align-items: center;
   color: white;
   margin-left: 60px;
+
   p {
     margin: 0;
   }
+
   .text {
     font-family: "Syne";
     font-weight: 800;
@@ -228,10 +252,12 @@ header {
     -ms-user-select: none;
     user-select: none;
     transition: ease-in-out 100ms;
+
     &:hover {
       color: #5988ff;
     }
   }
+
   .email {
     font-size: 23px;
     font-family: "Overpass";
@@ -245,7 +271,6 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 60px;
 
   div {
     display: flex;
@@ -279,9 +304,41 @@ header {
   }
 }
 
+.copy-email {
+  display: flex;
+  .icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    margin-left: 24px;
+    position: relative;
 
+    .default-icon,
+    .hover-icon {
+      transition: opacity 200ms ease;
+      width: 25px;
+      position: absolute;
+    }
 
+    .default-icon {
+      opacity: 1;
+    }
 
+    .hover-icon {
+      opacity: 0;
+    }
 
+    &:hover .default-icon {
+      opacity: 0;
+    }
 
-
+    &:hover .hover-icon {
+      opacity: 1;
+    }
+  }
+}

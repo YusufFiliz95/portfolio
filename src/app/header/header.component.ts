@@ -7,10 +7,16 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
   isActive = false;
+  canClick = true;
 
   toggleActive() {
-    this.isActive = !this.isActive;
+    if(this.canClick) {
+      this.isActive = !this.isActive;
+
+      this.canClick = false;
+      setTimeout(() => {
+        this.canClick = true;
+      }, 800);
+    }
   }
 }
-
-

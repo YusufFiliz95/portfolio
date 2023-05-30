@@ -223,6 +223,14 @@ header {
     font-family: "Syne";
     font-weight: 800;
     font-size: 78px;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    transition: ease-in-out 100ms;
+    &:hover {
+      color: #5988ff;
+    }
   }
   .email {
     font-size: 23px;
@@ -233,24 +241,47 @@ header {
 
 .social-network {
   width: 500px;
-  height: 150px;
+  height: 162px;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-right: 60px;
+
   div {
     display: flex;
     align-items: center;
   }
-  img {
+
+  .icon {
     width: 30px;
-    height: 30px;
+    height: 50px;
     margin-left: 30px;
     margin-right: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    transition: padding-bottom 150ms ease-in-out;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  .icon img {
+    width: 30px;
+    height: 30px;
     cursor: pointer;
-    transition: ease-in-out 150ms;
-    &:hover {
-      margin-bottom: 30px;
-    }
+  }
+
+  .icon:hover {
+    padding-bottom: 30px;
+    cursor: pointer;
   }
 }
+
+
+
+
+
+
+

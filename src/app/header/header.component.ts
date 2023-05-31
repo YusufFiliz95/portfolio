@@ -33,13 +33,18 @@ export class HeaderComponent {
   }
 
   copyEmail() {
-    navigator.clipboard.writeText('y.filiz.ch@gmail.com');
-    this.showPopup = true;
-    setTimeout(() => {
-      this.showPopup = false;
-    }, 2000);
-    setTimeout(() => {
-      this.showPopup = false;
-    }, 2600);
+    if (this.canClick) {
+      navigator.clipboard.writeText('y.filiz.ch@gmail.com');
+      this.showPopup = true;
+      this.canClick = false;
+
+      setTimeout(() => {
+        this.showPopup = false;
+      }, 2000);
+
+      setTimeout(() => {
+        this.canClick = true;
+      }, 2400);
+    }
   }
 }

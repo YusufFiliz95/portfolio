@@ -8,6 +8,10 @@ import { Component } from '@angular/core';
 export class HeaderComponent {
   isActive = false;
   canClick = true;
+  changeColor = false;
+  isHovered = false;
+  showPopup = false;
+
 
   toggleActive() {
     if(this.canClick) {
@@ -18,5 +22,21 @@ export class HeaderComponent {
         this.canClick = true;
       }, 800);
     }
+  }
+
+  onMouseEnter() {
+    this.isHovered = true;
+  }
+
+  onMouseLeave() {
+    this.isHovered = false;
+  }
+
+  copyEmail() {
+    navigator.clipboard.writeText('y.filiz.ch@gmail.com');
+    this.showPopup = true;
+    setTimeout(() => {
+      this.showPopup = false;
+    }, 3000);
   }
 }

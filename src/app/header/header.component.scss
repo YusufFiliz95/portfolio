@@ -247,12 +247,12 @@ header {
     font-family: "Syne";
     font-weight: 800;
     font-size: 78px;
+    margin-bottom: 10px;
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
     transition: ease-in-out 100ms;
-
     &:hover {
       color: #5988ff;
     }
@@ -261,7 +261,6 @@ header {
   .email {
     font-size: 23px;
     font-family: "Overpass";
-    margin-top: 10px;
   }
 }
 
@@ -341,14 +340,30 @@ header {
       opacity: 1;
     }
   }
+}
 
-  .email {
-    transition: text-shadow 200ms ease;
-  }
+.email, .hover-icon-container {
+  position: relative;
+  z-index: 1;
+}
 
-  &:hover .email {
-    text-shadow: 0px 0px 10px rgba(89, 136, 255, 0.7);
-  }
+.email::before, .hover-icon-container::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: -0.25em;
+  right: -0.25em;
+  background-color: #5988ff;
+  transform-origin: center right;
+  transform: scaleX(0);
+  transition: transform 0.2s ease-in-out;
+}
+
+.hover-icon-container::before {
+  transform: scaleX(1);
+  transform-origin: center left;
 }
 
 

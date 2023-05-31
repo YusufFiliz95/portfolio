@@ -31,29 +31,31 @@
     <div class="menu-socials">
       <div class="text-email">
         <span>
-            <p class="text">Say Hi!</p>
-            <div class="copy-email">
-              <p class="email">y.filiz.ch@gmail.com</p>
-              <div class="icon-container">
-                <img src="assets/img/copy.svg" alt="" class="default-icon">
-                <img src="assets/img/copy-hover.svg" alt="" class="hover-icon">
-              </div>
+          <p class="text">Say Hi!</p>
+          <div class="copy-email">
+            <p id="uniqueEmail" [class.hover-icon-container]="isHovered" class="email">y.filiz.ch@gmail.com</p>
+            <div class="icon-container" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()" (click)="copyEmail()">
+              <img src="assets/img/copy.svg" alt="" class="default-icon">
+              <img src="assets/img/copy-hover.svg" alt="" class="hover-icon">
             </div>
+          </div>
+          <div *ngIf="showPopup" class="popup-email-confirmation">Email copied!</div>
         </span>
       </div>
-        <div class="social-network">
-    <div class="icons">
-      <div class="icon">
-        <img src="assets/img/github.svg" alt="">
+
+      <div class="social-network">
+        <div class="icons">
+          <div class="icon">
+            <img src="assets/img/github.svg" alt="">
+          </div>
+          <div class="icon">
+            <img src="assets/img/email.svg" alt="">
+          </div>
+          <div class="icon">
+            <img src="assets/img/linkedin.svg" alt="">
+          </div>
+        </div>
       </div>
-      <div class="icon">
-        <img src="assets/img/email.svg" alt="">
-      </div>
-      <div class="icon">
-        <img src="assets/img/linkedin.svg" alt="">
-      </div>
-    </div>
-  </div>
     </div>
   </div>
 </body>

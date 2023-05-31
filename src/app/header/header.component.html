@@ -39,7 +39,9 @@
               <img src="assets/img/copy-hover.svg" alt="" class="hover-icon">
             </div>
           </div>
-          <div *ngIf="showPopup" class="popup-email-confirmation">Email copied!</div>
+          <div class="popup-text">
+            <P class="popup-email-confirmation" [ngClass]="{'hide': !showPopup}">Email copied!</P>
+          </div>
         </span>
       </div>
 

@@ -37,6 +37,9 @@ export class HeaderComponent {
     this.showPopup = true;
     setTimeout(() => {
       this.showPopup = false;
-    }, 3000);
+    }, 2000);
+    setTimeout(() => {
+      this.showPopup = false;
+    }, 2600);
   }
 }

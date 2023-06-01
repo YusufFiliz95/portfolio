@@ -7,3 +7,17 @@ body {
   background-image: url(assets/img/backgroundimg.jpg);
   background-repeat: repeat;
 }
+
+::-webkit-scrollbar {
+  width: 8px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #5988ff;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+}

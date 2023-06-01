@@ -19,8 +19,8 @@
         </div>
         <div class="about-me-img">
           <div class="img-with-border">
-            <img src="assets/img/photo.JPG" alt="">
-            <div  class="img-border"></div>
+            <img (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()" src="assets/img/photo.JPG" alt="">
+            <div [class.img-border]="isHovered"></div>
           </div>
         </div>
       </div>

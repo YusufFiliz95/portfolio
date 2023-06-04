@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { TitleComponent } from './title/title.component';
 import { AboutMeComponent } from './about-me/about-me.component';
 import { NotDoneYetComponent } from './not-done-yet/not-done-yet.component';
+import { MySkillsComponent } from './my-skills/my-skills.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { NotDoneYetComponent } from './not-done-yet/not-done-yet.component';
     HeaderComponent,
     TitleComponent,
     AboutMeComponent,
-    NotDoneYetComponent
+    NotDoneYetComponent,
+    MySkillsComponent
   ],
   imports: [
     BrowserModule,

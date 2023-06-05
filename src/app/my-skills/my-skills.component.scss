@@ -8,7 +8,7 @@
     width: 1239px;
     height: 592px;
     border: 4px solid #000000;
-    span{
+    span {
       display: flex;
       justify-content: center;
       position: relative;
@@ -22,6 +22,14 @@
         top: -56px;
         padding-left: 20px;
         padding-right: 20px;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        transition: ease-in-out 180ms;
+        &:hover {
+          color: #5988ff;
+        }
       }
     }
   }

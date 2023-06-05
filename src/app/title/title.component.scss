@@ -57,7 +57,7 @@
   display: flex;
   align-items: flex-end;
   width: 50%;
-  padding-left: 60px;
+  padding-left: 30px;
   margin-bottom: 80px;
   -moz-user-select: none;
   -webkit-user-select: none;
@@ -67,6 +67,7 @@
     transition: ease-in-out 100ms;
     cursor: pointer;
     transform: rotate(-90deg);
+    margin: 0;
     &:hover {
       color: #5988ff;
     }

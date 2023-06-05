@@ -6,6 +6,7 @@ body {
   text-rendering: optimizeLegibility;
   background-image: url(assets/img/backgroundimg.jpg);
   background-repeat: repeat;
+  scroll-behavior: smooth;
 }
 
 ::-webkit-scrollbar {

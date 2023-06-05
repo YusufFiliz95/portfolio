@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./title.component.scss']
 })
 export class TitleComponent {
-
+  scrollToElement(elementId: string): void {
+    document.getElementById(elementId)?.scrollIntoView({ behavior: 'smooth' });
+  }
 }

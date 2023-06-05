@@ -4,12 +4,11 @@
       <p>My Skills</p>
     </span>
     <div class="skills-icon-container">
-      <div class="part1-icons">
-
-      </div>
-      <div class="part2-icons">
-
+      <div class="icon" *ngFor="let icon of icons; let i = index">
+        <img [src]="icon" [alt]="skills[i]">
+        <p>{{ skills[i] }}</p>
       </div>
     </div>
   </div>
 </div>
+

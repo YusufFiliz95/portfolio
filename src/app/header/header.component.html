@@ -35,8 +35,8 @@
           <div class="copy-email">
             <p id="uniqueEmail" [class.hover-icon-container]="isHovered" class="email">y.filiz.ch@gmail.com</p>
             <div class="icon-container" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()" (click)="copyEmail()">
-              <img src="assets/img/copy.svg" alt="" class="default-icon">
-              <img src="assets/img/copy-hover.svg" alt="" class="hover-icon">
+              <img src="assets/img/copy.svg" alt="" class="default-icon"draggable="false">
+              <img src="assets/img/copy-hover.svg" alt="" class="hover-icon" draggable="false">
             </div>
           </div>
           <div class="popup-text">
@@ -48,13 +48,13 @@
       <div class="social-network">
         <div class="icons">
           <div class="icon">
-            <img src="assets/img/github.svg" alt="">
+            <img src="assets/img/github.svg" draggable="false" alt="">
           </div>
           <div class="icon">
-            <img src="assets/img/email.svg" alt="">
+            <img src="assets/img/email.svg" draggable="false" alt="">
           </div>
           <div class="icon">
-            <img src="assets/img/linkedin.svg" alt="">
+            <img src="assets/img/linkedin.svg" draggable="false" alt="">
           </div>
         </div>
       </div>

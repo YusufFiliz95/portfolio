@@ -58,6 +58,13 @@
       align-items: center;
       text-align: center;
       margin: 60px;
+      img {
+        transition: 180ms ease-in-out;
+      }
+      &:hover img {
+        transition: 180ms ease-in-out;
+        transform: translateY(-20px);
+      }
       p {
         font-family: "Overpass";
         font-style: normal;
@@ -72,58 +79,10 @@
   }
 }
 
-
-.flip-horizontal-bottom {
-	-webkit-animation: flip-horizontal-bottom 0.2s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
-  animation: flip-horizontal-bottom 0.2s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+.icon-img {
+  transition: opacity 0.5s ease-in-out;
 }
 
-@-webkit-keyframes flip-horizontal-bottom {
-  0% {
-    -webkit-transform: rotateX(0);
-            transform: rotateX(0);
-  }
-  100% {
-    -webkit-transform: rotateX(-180deg);
-            transform: rotateX(-180deg);
-  }
+.fade {
+  opacity: 0;
 }
-
-@keyframes flip-horizontal-bottom {
-  0% {
-    -webkit-transform: rotateX(0);
-            transform: rotateX(0);
-  }
-  100% {
-    -webkit-transform: rotateX(-180deg);
-            transform: rotateX(-180deg);
-  }
-}
-
-.flip-horizontal-top {
-	-webkit-animation: flip-horizontal-top 0.2s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
-  animation: flip-horizontal-top 0.2s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
-}
-
-@-webkit-keyframes flip-horizontal-top {
-  0% {
-    -webkit-transform: rotateX(-180deg);
-            transform: rotateX(-180deg);
-  }
-  100% {
-    -webkit-transform: rotateX(0);
-            transform: rotateX(0);
-  }
-}
-
-@keyframes flip-horizontal-top {
-  0% {
-    -webkit-transform: rotateX(-180deg);
-            transform: rotateX(-180deg);
-  }
-  100% {
-    -webkit-transform: rotateX(0);
-            transform: rotateX(0);
-  }
-}
-

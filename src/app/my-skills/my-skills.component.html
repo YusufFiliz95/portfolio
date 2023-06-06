@@ -5,13 +5,9 @@
     </span>
     <div class="skills-icon-container">
       <div class="icons">
-        <div class="icon" *ngFor="let icon of icons; let i = index"
-          (mouseover)="hoveredIndex = i; lastHoveredIndex = null"
-          (mouseout)="lastHoveredIndex = i; hoveredIndex = null">
-          <img [src]="icon" [alt]="skills[i]" draggable="false" [ngClass]="{
-            'flip-horizontal-bottom': i === hoveredIndex,
-            'flip-horizontal-top': i === lastHoveredIndex
-          }">
+        <div class="icon" *ngFor="let icon of icons; let i = index" (mouseover)="onMouseOver(i)" (mouseleave)="onMouseLeave(i)">
+          <img class="icon-img" [src]="icons[i]" [alt]="skills[i]">
+          <img class="icon-img" [src]="iconshover[i]" [alt]="skills[i]" [class.fade]="!flips[i]">
           <p>{{ skills[i] }}</p>
         </div>
       </div>

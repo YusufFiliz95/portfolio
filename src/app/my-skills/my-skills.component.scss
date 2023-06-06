@@ -51,14 +51,17 @@
     }
     .icon {
       width: 100px;
-      height: 100px;
+      height: 111px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
       margin: 60px;
+      transition: 180ms ease-in-out;
       img {
+        width: 70px;
+        height: 70px;
         transition: 180ms ease-in-out;
       }
       &:hover img {
@@ -68,9 +71,12 @@
       p {
         font-family: "Overpass";
         font-style: normal;
+        margin: 0;
+        margin-top: 16px;
         font-weight: 700;
         font-size: 16px;
         transition: color 180ms ease-in-out;
+        white-space: nowrap;
       }
       &:hover p {
         color: #5988ff;
@@ -79,10 +85,20 @@
   }
 }
 
+.icons-hover {
+  position: relative;
+  height: 100%;
+  width: 70px;
+}
+
 .icon-img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
   transition: opacity 0.5s ease-in-out;
 }
 
 .fade {
   opacity: 0;
 }
+

@@ -12,11 +12,15 @@ export class MySkillsComponent {
   skills = ["Angular", "TypeScript", "JavaScript", "HTML", "CSS", "Firebase", "Git", "Scrum", "Rest-API", "Material Design"];
   flips: boolean[] = new Array(this.skills.length).fill(false);  // Array to keep track of hover state for each skill
 
+  isHovered: boolean[] = new Array(this.skills.length).fill(false);
+
   onMouseOver(index: number) {
     this.flips[index] = true;
+    this.isHovered = this.isHovered.map((val, i) => i === index);
   }
 
   onMouseLeave(index: number) {
     this.flips[index] = false;
+    this.isHovered = this.isHovered.map(val => false);
   }
 }

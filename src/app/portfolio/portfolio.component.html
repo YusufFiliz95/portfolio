@@ -15,14 +15,14 @@
         </div>
       </div>
       <div class="project-description">
-        <p>{{i + 1}}/0{{projects.length}}</p>
+        <p>0{{i + 1}}/0{{projects.length}}</p>
         <div>
           <h1>{{project.title}}</h1>
           <p>{{project.techStack.join(' | ')}}</p>
           <p>{{project.description}}</p>
           <div class="project-buttons">
-            <a [href]="project.githubLink" target="_blank">Github</a>
-            <a [href]="project.liveTestLink" target="_blank">Live-Test</a>
+            <button (click)="navigateTo(project.githubLink)">Github</button>
+            <button (click)="navigateTo(project.liveTestLink)">Live-Test</button>
           </div>
         </div>
       </div>

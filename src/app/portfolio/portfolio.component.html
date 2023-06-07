@@ -6,8 +6,8 @@
   <div class="projects-section">
 
 
-    <div *ngFor="let project of projects; index as i">
-      <div class="project" [ngClass]="{'project-reverse': i % 2 != 0}">
+
+      <div *ngFor="let project of projects; index as i" class="project" [ngClass]="{'project-reverse': i % 2 != 0}">
         <div class="project-image">
           <img [src]="project.image" alt="">
           <div>
@@ -27,7 +27,6 @@
           </div>
         </div>
       </div>
-    </div>
 
 
 

@@ -18,6 +18,15 @@ export class PortfolioComponent {
       'https://github.com',
       'https://github.com'
     ),
+    new Project(
+      2,
+      'Join',
+      ['Angular', 'Typescript', 'HTML', 'CSS', 'Firebase'],
+      'Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories.',
+      'assets/img/project1.png',
+      'https://github.com',
+      'https://github.com'
+    ),
   ];
 
   navigateTo(url: string): void {

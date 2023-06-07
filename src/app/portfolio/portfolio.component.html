@@ -10,13 +10,15 @@
     <div *ngFor="let project of projects; index as i" class="project">
       <div class="project-image" *ngIf="i % 2 == 0">
         <img [src]="project.image" alt="">
-        <div>
+        <div class="project-border">
           <img class="project-arrow" src="assets/img/project-arrow.svg" alt="">
         </div>
       </div>
       <div class="project-description">
-        <p>0{{i + 1}}/0{{projects.length}}</p>
-        <div>
+        <span class="project-number">
+          <p>0{{i + 1}}/0{{projects.length}}</p>
+        </span>
+        <div class="project-info">
           <h1>{{project.title}}</h1>
           <p>{{project.techStack.join(' | ')}}</p>
           <p>{{project.description}}</p>
@@ -28,7 +30,7 @@
       </div>
       <div class="project-image" *ngIf="i % 2 != 0">
         <img [src]="project.image" alt="">
-        <div>
+        <div class="project-border-reverse">
           <img class="project-arrow-reverse" src="assets/img/project-arrow.svg" alt="">
         </div>
       </div>

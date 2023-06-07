@@ -1,0 +1,42 @@
+.portfolio-section {
+  background-color: aqua;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.portfolio-headline {
+  width: 1239px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: red;
+  h1 {
+    font-family: "Syne";
+    font-style: normal;
+    font-weight: 800;
+    font-size: 78px;
+    margin: 0;
+    margin-bottom: 8px;
+  }
+  p {
+    font-family: "Overpass";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 23px;
+    margin: 0;
+  }
+}
+
+.projects-section {
+  .project{
+    img {
+
+    }
+    p{
+      
+    }
+  }
+}

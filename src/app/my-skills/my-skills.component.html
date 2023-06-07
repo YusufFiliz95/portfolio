@@ -1,18 +1,26 @@
 <div class="my-skills-section">
-  <div class="my-skills-container">
-    <span>
-      <p>My Skills</p>
-    </span>
-    <div class="skills-icon-container">
-      <div class="icons">
-        <div class="icon" *ngFor="let icon of icons; let i = index" (mouseover)="onMouseOver(i)" (mouseleave)="onMouseLeave(i)">
-          <div class="icons-hover">
-            <img class="icon-img" [src]="icons[i]" [alt]="skills[i]" [class.fade]="isHovered[i]">
-            <img class="icon-img" [src]="iconshover[i]" [alt]="skills[i]" [class.fade]="!flips[i]">
+  <div class="skills-container-icons">
+    <div class="my-skills-container">
+      <span>
+        <p>My Skills</p>
+      </span>
+      <div class="skills-icon-container">
+        <div class="icons">
+          <div class="icon" *ngFor="let icon of icons; let i = index" (mouseover)="onMouseOver(i)"
+            (mouseleave)="onMouseLeave(i)">
+            <div class="icons-hover">
+              <img class="icon-img" [src]="icons[i]" [alt]="skills[i]" [class.fade]="isHovered[i]">
+              <img class="icon-img" [src]="iconshover[i]" [alt]="skills[i]" [class.fade]="!flips[i]">
+            </div>
+            <p>{{ skills[i] }}</p>
           </div>
-          <p>{{ skills[i] }}</p>
         </div>
       </div>
+    </div>
+  </div>
+  <div class="arrow-down" (click)="scrollToElement('mySkills')">
+    <div>
+      <img src="assets/img/arrow-scroll-down-left.png" alt="" draggable="false">
     </div>
   </div>
 </div>

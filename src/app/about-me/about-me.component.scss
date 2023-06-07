@@ -103,19 +103,18 @@
   }
 }
 
-
 .arrow-down {
   height: 20%;
   display: flex;
   justify-content: center;
   div {
-    width: 1300px;
-    padding-right: 400px;
+    width: 1239px;
     display: flex;
     justify-content: flex-end;
     img {
       cursor: pointer;
       object-fit: cover;
+      margin-right: 140px;
     }
   }
 }

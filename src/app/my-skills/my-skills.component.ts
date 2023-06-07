@@ -23,4 +23,8 @@ export class MySkillsComponent {
     this.flips[index] = false;
     this.isHovered = this.isHovered.map(val => false);
   }
+
+  scrollToElement(elementId: string): void {
+    document.getElementById(elementId)?.scrollIntoView({ behavior: 'smooth' });
+  }
 }

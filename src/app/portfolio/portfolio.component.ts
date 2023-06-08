@@ -14,16 +14,16 @@ export class PortfolioComponent {
       'Join',
       ['Angular', 'Typescript', 'HTML', 'CSS', 'Firebase'],
       'Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories.',
-      'assets/img/project1.png',
+      'assets/img/Join.png',
       'https://github.com',
       'https://github.com'
     ),
     new Project(
       2,
-      'Join',
-      ['Angular', 'Typescript', 'HTML', 'CSS', 'Firebase'],
-      'Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories.',
-      'assets/img/project1.png',
+      'El-Pollo-Loco',
+      ['Javascript', 'HTML', 'CSS'],
+      'A simple Jump-and-Run game based on an object-oriented approach. Help Pepe to find coins and salsa bottles to fight aginst the chicken',
+      'assets/img/El-Pollo-Loco.png',
       'https://github.com',
       'https://github.com'
     ),

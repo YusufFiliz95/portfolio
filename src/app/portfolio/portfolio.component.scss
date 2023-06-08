@@ -50,18 +50,54 @@
     margin-bottom: 130px;
 
 
-    .project-image {
+    .project-image-container {
       width: 50%;
       height: 100%;
-      background-color: rgb(75, 75, 150);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      position: relative;
 
-      .project-arrow {
-
+      .project-image {
+        width: 570px;
+        height: 380px;
       }
 
-      .project-arrow-reverse {
-        transform: scaleX(-1);
+      .project-border {
+        position: absolute;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 566px;
+        height: 329px;
+        border: 4px solid black;
+        left: 40px;
+        top: 81px;
+
+        .project-arrow {
+          position: absolute;
+          right: -42px;
+        }
       }
+
+      .project-border-reverse {
+        position: absolute;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 566px;
+        height: 329px;
+        border: 4px solid black;
+        left: 4px;
+        top: 81px;
+
+        .project-arrow-reverse {
+          position: absolute;
+          left: -42px;
+          transform: scaleX(-1);
+        }
+      }
+
     }
     .project-description-container {
       width: 50%;
@@ -102,7 +138,7 @@
         height: 80%;
 
         .project-name {
-          padding-left: 32px;
+          padding-left: 100px;
           margin-bottom: 12px;
           font-family: "Syne";
           font-style: normal;
@@ -111,7 +147,7 @@
         }
 
         .project-tech-stack {
-          padding-left: 32px;
+          padding-left: 100px;
           margin-top: 0;
           margin-bottom: 12px;
           font-family: "Overpass";
@@ -122,11 +158,12 @@
         }
 
         .project-description {
-          padding-left: 32px;
+          padding-left: 100px;
           font-family: "Overpass";
           font-style: normal;
           font-weight: 400;
           font-size: 16px;
+          text-align: justify;
         }
       }
 
@@ -158,16 +195,17 @@
 
         .project-description-reverse {
           padding-left: 0;
-          padding-right: 32px;
+          padding-right: 100px;
           font-family: "Overpass";
           font-style: normal;
           font-weight: 400;
           font-size: 16px;
+          text-align: justify;
         }
       }
 
       .project-buttons {
-        padding-left: 32px;
+        padding-left: 100px;
         padding-top: 16px;
         button {
           width: 140px;

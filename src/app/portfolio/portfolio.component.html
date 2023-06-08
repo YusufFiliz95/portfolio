@@ -9,9 +9,9 @@
 
     <div *ngFor="let project of projects; index as i" class="project">
       <div class="project-image" *ngIf="i % 2 == 0">
-        <img [src]="project.image" alt="">
+        <img [src]="project.image" alt="" draggable="false">
         <div class="project-border">
-          <img class="project-arrow" src="assets/img/project-arrow.svg" alt="">
+          <img class="project-arrow" src="assets/img/project-arrow.svg" alt="" draggable="false">
         </div>
       </div>
       <div class="project-description-container">
@@ -29,9 +29,9 @@
         </div>
       </div>
       <div class="project-image" *ngIf="i % 2 != 0">
-        <img [src]="project.image" alt="">
+        <img [src]="project.image" alt="" draggable="false">
         <div class="project-border-reverse">
-          <img class="project-arrow-reverse" src="assets/img/project-arrow.svg" alt="">
+          <img class="project-arrow-reverse" src="assets/img/project-arrow.svg" alt="" draggable="false">
         </div>
       </div>
     </div>

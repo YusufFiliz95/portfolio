@@ -12,7 +12,7 @@ export class PortfolioComponent {
     new Project(
       1,
       'Join',
-      ['Angular', 'Typescript', 'HTML', 'CSS', 'Firebase'],
+      ['Angular', 'TypeScript', 'HTML', 'CSS', 'Firebase'],
       'Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories.',
       'assets/img/Join.png',
       'https://github.com',
@@ -21,8 +21,8 @@ export class PortfolioComponent {
     new Project(
       2,
       'El-Pollo-Loco',
-      ['Javascript', 'HTML', 'CSS'],
-      'A simple Jump-and-Run game based on an object-oriented approach. Help Pepe to find coins and salsa bottles to fight aginst the chicken',
+      ['JavaScript', 'HTML', 'CSS'],
+      'A simple Jump-and-Run game based on an object-oriented approach. Help Pepe to find coins and salsa bottles to fight aginst El Pollo Loco',
       'assets/img/El-Pollo-Loco.png',
       'https://github.com',
       'https://github.com'
@@ -30,9 +30,18 @@ export class PortfolioComponent {
     new Project(
       3,
       'Ring Of Fire',
-      ['Angular', 'Html', 'SCSS', 'Firebase'],
-      'A simple Jump-and-Run game based on an object-oriented approach. Help Pepe to find coins and salsa bottles to fight aginst the chicken',
-      'assets/img/El-Pollo-Loco.png',
+      ['Angular', 'HTML', 'SCSS', 'Firebase'],
+      'A card-based party game involving drink-related rules for each card drawn.',
+      'assets/img/Ring-Of-Fire.jpg',
+      'https://github.com',
+      'https://github.com'
+    ),
+    new Project(
+      3,
+      'Pokédex',
+      ['JavaScript', 'HTML', 'CSS', 'API'],
+      'a digital encyclopedia application developed with a REST API, providing detailed data on Pokémon characters.',
+      'assets/img/Pokedex.png',
       'https://github.com',
       'https://github.com'
     ),

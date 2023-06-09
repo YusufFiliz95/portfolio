@@ -61,6 +61,8 @@
       .project-image {
         width: 570px;
         height: 380px;
+        filter: grayscale(100%) blur(0.5px);
+        transition: filter 150ms;
       }
 
       .project-border {
@@ -304,4 +306,8 @@
 
 .project:hover .project-number {
   color: #5988ff;
+}
+
+.project:hover .project-image{
+  filter: grayscale(0%) !important;
 }

@@ -27,6 +27,15 @@ export class PortfolioComponent {
       'https://github.com',
       'https://github.com'
     ),
+    new Project(
+      3,
+      'Ring Of Fire',
+      ['Angular', 'Html', 'SCSS', 'Firebase'],
+      'A simple Jump-and-Run game based on an object-oriented approach. Help Pepe to find coins and salsa bottles to fight aginst the chicken',
+      'assets/img/El-Pollo-Loco.png',
+      'https://github.com',
+      'https://github.com'
+    ),
   ];
 
   navigateTo(url: string): void {

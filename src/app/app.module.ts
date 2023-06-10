@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { TitleComponent } from './title/title.component';
 import { AboutMeComponent } from './about-me/about-me.component';
-import { NotDoneYetComponent } from './not-done-yet/not-done-yet.component';
 import { MySkillsComponent } from './my-skills/my-skills.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { ContactComponent } from './contact/contact.component';
@@ -17,7 +16,6 @@ import { ContactComponent } from './contact/contact.component';
     HeaderComponent,
     TitleComponent,
     AboutMeComponent,
-    NotDoneYetComponent,
     MySkillsComponent,
     PortfolioComponent,
     ContactComponent

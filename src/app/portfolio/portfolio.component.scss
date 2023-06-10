@@ -1,5 +1,6 @@
 .portfolio-section {
   padding-top: 140px;
+  background-color: aqua;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -75,14 +76,16 @@
         border: 4px solid transparent;
         left: 24px;
         top: 0px;
-        transition: border-color 150ms ease-in-out, top 150ms ease-in-out, left 150ms ease-in-out;
+        transition: border-color 150ms ease-in-out, top 150ms ease-in-out,
+          left 150ms ease-in-out;
 
         .project-arrow {
           position: absolute;
           right: -41px;
           transform: rotate(135deg); //Soll 0 sein
           opacity: 0;
-          transition: opacity 150ms ease-in-out 150ms, transform 150ms ease-in-out 300ms;
+          transition: opacity 150ms ease-in-out 150ms,
+            transform 150ms ease-in-out 300ms;
           transition-delay: 0s, 0s;
         }
       }
@@ -97,14 +100,16 @@
         border: 4px solid transparent;
         left: 25px;
         top: 0px;
-        transition: border-color 150ms ease-in-out, top 150ms ease-in-out, left 150ms ease-in-out;
+        transition: border-color 150ms ease-in-out, top 150ms ease-in-out,
+          left 150ms ease-in-out;
 
         .project-arrow-reverse {
           position: absolute;
           left: -40px;
           transform: rotate(135deg); // Soll 270 sein
           opacity: 0;
-          transition: opacity 150ms ease-in-out 150ms, transform 150ms ease-in-out 150ms;
+          transition: opacity 150ms ease-in-out 150ms,
+            transform 150ms ease-in-out 150ms;
           transition-delay: 0s, 0s;
         }
       }
@@ -150,7 +155,8 @@
         height: 87%;
         opacity: 0;
         transform: translateX(-100%);
-        transition: opacity 250ms ease-in-out 150ms, transform 250ms ease-in-out 150ms;
+        transition: opacity 250ms ease-in-out 150ms,
+          transform 250ms ease-in-out 150ms;
 
         .project-name {
           padding-left: 100px;
@@ -187,7 +193,8 @@
         height: 87%;
         opacity: 0;
         transform: translateX(100%);
-        transition: opacity 250ms ease-in-out 150ms, transform 250ms ease-in-out 150ms;
+        transition: opacity 250ms ease-in-out 150ms,
+          transform 250ms ease-in-out 150ms;
 
         .project-name-reverse {
           padding-left: 0;
@@ -287,7 +294,6 @@
   transition-delay: 50ms, 150ms !important;
 }
 
-
 .project:hover .project-arrow {
   opacity: 1 !important;
   transform: rotate(0deg) !important;
@@ -308,6 +314,22 @@
   color: #5988ff;
 }
 
-.project:hover .project-image{
+.project:hover .project-image {
   filter: grayscale(0%) !important;
+}
+
+.arrow-down {
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  div {
+    width: 1239px;
+    display: flex;
+    justify-content: flex-end;
+    img {
+      cursor: pointer;
+      object-fit: cover;
+      margin-right: 140px;
+    }
+  }
 }

@@ -50,4 +50,8 @@ export class PortfolioComponent {
   navigateTo(url: string): void {
     window.open(url, "_blank");
   }
+
+  scrollToElement(elementId: string): void {
+    document.getElementById(elementId)?.scrollIntoView({ behavior: 'smooth' });
+  }
 }

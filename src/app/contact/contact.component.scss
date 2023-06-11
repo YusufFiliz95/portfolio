@@ -11,7 +11,6 @@
     .contact {
       height: 90%;
       width: 100%;
-      background-color: aquamarine;
 
       h1 {
         margin: 0;
@@ -21,6 +20,7 @@
         font-style: normal;
         font-weight: 800;
         font-size: 78px;
+        margin-bottom: 40px;
       }
 
       .contact-form-headline {
@@ -37,6 +37,7 @@
         font-style: normal;
         font-weight: 400;
         font-size: 23px;
+        margin-bottom: 60px;
       }
 
       p {
@@ -47,7 +48,65 @@
     .legal-notice {
       height: 10%;
       width: 100%;
-      background-color: rgb(110, 134, 42);
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 45px;
+
+      input {
+        width: 617px;
+        height: 50px;
+        background: #000000;
+        border: 0;
+        border: 2px solid transparent;
+        border-bottom: 2px solid #fffcf3;
+        padding: 15px 25px;
+        gap: 10px;
+        font-family: "Overpass";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        color: #fffcf3;
+        cursor: pointer;
+        transition: 150ms ease-in-out;
+        &:hover {
+          border: 2px solid #fffcf3;
+        }
+      }
+
+      input::placeholder {
+        font-family: "Overpass";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        color: #fffcf3;
+      }
+
+      .contact-message {
+        height: 202px;
+      }
+
+      button {
+        width: 250px;
+        height: 68px;
+        border: 5px solid #fffcf3;
+        background-color: transparent;
+        color: #fffcf3;
+        font-size: 23px;
+        font-family: "Overpass";
+        transition: 100ms ease-in-out;
+        cursor: pointer;
+        text-align: center;
+        line-height: 62px;
+        &:hover {
+          width: 300px;
+          font-weight: 800;
+        }
+      }
     }
   }
 }

@@ -86,8 +86,33 @@
         color: #fffcf3;
       }
 
-      .contact-message {
+      textarea {
+        width: 617px;
         height: 202px;
+        background: #000000;
+        border: 0;
+        border: 2px solid transparent;
+        border-bottom: 2px solid #fffcf3;
+        padding: 15px 25px;
+        gap: 10px;
+        font-family: "Overpass";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        color: #fffcf3;
+        cursor: pointer;
+        transition: 150ms ease-in-out;
+        &:hover {
+          border: 2px solid #fffcf3;
+        }
+      }
+
+      textarea::placeholder {
+        font-family: "Overpass";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        color: #fffcf3;
       }
 
       button {

@@ -8,9 +8,9 @@
         <input type="text" placeholder="Your name">
         <input type="text" placeholder="Your Email">
         <div class="textarea-container">
-          <label for="message" class="textarea-label" [class.focused]="isFocused">Your message</label>
-          <textarea class="contact-message" id="message" (focus)="focus(true)" (blur)="focus(false)"></textarea>
-      </div>
+          <label #label class="textarea-label" [class.focused]="isFocused || isNotEmpty()">Your message</label>
+          <textarea #textarea class="contact-message" id="message" (input)="onInput()" (focus)="focus(true)" (focusout)="focus(false)"></textarea>
+        </div>
         <button>Send message</button>
       </div>
     </div>

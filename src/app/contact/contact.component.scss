@@ -55,7 +55,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      gap: 45px;
+      gap: 60px;
 
       .email-container {
         position: relative;
@@ -63,6 +63,7 @@
         align-items: center;
         label {
           position: absolute;
+          top: 21px;
           left: 17px;
           padding-left: 8px;
           padding-right: 8px;
@@ -73,8 +74,6 @@
           font-style: normal;
           font-weight: 400;
           font-size: 16px;
-          z-index: 2;
-          transition: 100ms ease-in-out;
         }
       }
 
@@ -84,6 +83,7 @@
         align-items: center;
         label {
           position: absolute;
+          top: 21px;
           left: 17px;
           padding-left: 8px;
           padding-right: 8px;
@@ -94,16 +94,14 @@
           font-style: normal;
           font-weight: 400;
           font-size: 16px;
-          z-index: 2;
-          transition: 100ms ease-in-out;
         }
       }
 
       input {
         position: relative;
         width: 617px;
-        height: 50px;
-        background: #000000;
+        height: 30px;
+        background: transparent;
         border: 0;
         box-shadow: 0 2px 0 0 #fffcf3;
         padding: 15px 25px;
@@ -113,8 +111,9 @@
         font-weight: 400;
         font-size: 16px;
         color: #fffcf3;
-        cursor: pointer;
         transition: 100ms ease-in-out;
+        z-index: 1;
+        cursor: pointer;
         &:hover {
           box-shadow: 0 0 0 4px #fffcf3;
         }
@@ -122,17 +121,19 @@
 
       input:focus {
         outline: none;
-        box-shadow: 0 0 0 2px #fffcf3;
+        box-shadow: 0 0 0 2px #fffcf3 !important;
         cursor: text;
       }
 
-      .input-name-label.focused {
-        top: -11px;
+      .input-name-label-focused {
+        top: -11px !important;
+        z-index: 2;
         color: #fffcf3;
       }
 
-      .input-email-label.email-focused {
-        top: -11px;
+      .input-email-label-focused {
+        top: -11px !important;
+        z-index: 2;
         color: #fffcf3;
       }
 
@@ -153,18 +154,18 @@
         font-style: normal;
         font-weight: 400;
         font-size: 16px;
-        z-index: 2;
       }
 
-      .textarea-label.focused {
+      .textarea-label-focused {
         top: -11px;
         color: #fffcf3;
+        z-index: 2;
       }
 
       .contact-message {
         width: 617px;
         height: 202px;
-        background: #000000;
+        background: transparent;
         border: 0;
         box-shadow: 0 2px 0 0 #fffcf3;
         padding: 15px 25px;
@@ -190,6 +191,14 @@
         outline: none;
         box-shadow: 0 0 0 2px #fffcf3;
         cursor: text;
+      }
+
+      .form-filled {
+        transition: 100ms ease-in-out;
+        box-shadow: 0 0 0 2px #fffcf3;
+        &:hover {
+          box-shadow: 0 0 0 4px #fffcf3;
+        }
       }
 
       button {

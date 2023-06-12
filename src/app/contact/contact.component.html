@@ -6,19 +6,16 @@
       <p class="contact-form-text">Say hello! let's discuss your ideas and make it happen</p>
       <div class="contact-form">
         <div class="name-container">
-          <label #nameLabel for="">Your name</label>
-          <input #nameInput type="text">
+          <label id="nameLabel">Your name</label>
+          <input id="nameInput" (focus)="nameLabelUp()" (focusout)="nameLabelDown()" (input)="updateFormFilledStatus($event)" type="text">
         </div>
         <div class="email-container">
-          <label #emailLabel [class.focused]="isTextAreaFocused || isEmailInputNotEmpty()">Your email</label>
-          <input #emailInput type="email" (input)="onEmailInput()" (focus)="focusEmailInput(true)"
-            (focusout)="focusEmailInput(false)">
+          <label id="emailLabel">Your email</label>
+          <input id="emailInput" (focus)="emailLabelUp()" (focusout)="emailLabelDown()" (input)="updateFormFilledStatus($event)" type="email">
         </div>
         <div class="textarea-container">
-          <label #textLabel class="textarea-label" [class.focused]="isTextAreaFocused || isTextAreaNotEmpty()">Your
-            message</label>
-          <textarea #textarea class="contact-message" (input)="onTextAreaInput()" (focus)="focusTextArea(true)"
-            (focusout)="focusTextArea(false)"></textarea>
+          <label id="textLabel" class="textarea-label">Your message</label>
+          <textarea id="textArea" class="contact-message" (focus)="textLabelUp()" (focusout)="textLabelDown()" (input)="updateFormFilledStatus($event)"></textarea>
         </div>
         <button>Send message</button>
       </div>

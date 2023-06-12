@@ -5,11 +5,20 @@
       <p class="contact-form-headline">Want to discuss a new project?</p>
       <p class="contact-form-text">Say hello! let's discuss your ideas and make it happen</p>
       <div class="contact-form">
-        <input type="text" placeholder="Your name">
-        <input type="text" placeholder="Your Email">
+        <div class="name-container">
+          <label #nameLabel for="">Your name</label>
+          <input #nameInput type="text">
+        </div>
+        <div class="email-container">
+          <label #emailLabel [class.focused]="isTextAreaFocused || isEmailInputNotEmpty()">Your email</label>
+          <input #emailInput type="email" (input)="onEmailInput()" (focus)="focusEmailInput(true)"
+            (focusout)="focusEmailInput(false)">
+        </div>
         <div class="textarea-container">
-          <label #label class="textarea-label" [class.focused]="isFocused || isNotEmpty()">Your message</label>
-          <textarea #textarea class="contact-message" id="message" (input)="onInput()" (focus)="focus(true)" (focusout)="focus(false)"></textarea>
+          <label #textLabel class="textarea-label" [class.focused]="isTextAreaFocused || isTextAreaNotEmpty()">Your
+            message</label>
+          <textarea #textarea class="contact-message" (input)="onTextAreaInput()" (focus)="focusTextArea(true)"
+            (focusout)="focusTextArea(false)"></textarea>
         </div>
         <button>Send message</button>
       </div>

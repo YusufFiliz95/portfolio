@@ -5,7 +5,7 @@
       <p class="contact-form-headline">Want to discuss a new project?</p>
       <p class="contact-form-text">Say hello! let's discuss your ideas and make it happen</p>
       <div class="contact-form">
-        <div class="name-container">
+        <div class="form-input-container">
           <label id="nameLabel">Your name</label>
           <input id="nameInput"
             (focus)="nameLabelUp(); updateFormFilledStatus($event, 'nameInput', 'nameLabel', 'form-filled', false); updateFormFilledStatus($event, 'nameInput', 'nameLabel', 'form-filled-label', true);"
@@ -13,7 +13,7 @@
             (input)="updateFormFilledStatus($event, 'nameInput', 'nameLabel', 'form-filled', false); updateFormFilledStatus($event, 'nameInput', 'nameLabel', 'form-filled-label', true);"
             type="text">
         </div>
-        <div class="email-container">
+        <div class="form-input-container">
           <label id="emailLabel">Your email</label>
           <input id="emailInput"
             (focus)="emailLabelUp(); updateFormFilledStatus($event, 'emailInput', 'emailLabel', 'form-filled', false); updateFormFilledStatus($event, 'emailInput', 'emailLabel', 'form-filled-label', true);"

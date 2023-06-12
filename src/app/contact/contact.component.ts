@@ -10,13 +10,23 @@ export class ContactComponent implements AfterViewInit {
   ngAfterViewInit() {
   }
 
-  updateFormFilledStatus(event: any) {
-    let inputElement = (<HTMLInputElement>event.target);
+  updateFormFilledStatus(event: any, inputElementId: string, labelElementId: string, className: string, isLabel: boolean = false) {
+    let inputElement = (<HTMLInputElement>document.getElementById(inputElementId));
+    let labelElement = document.getElementById(labelElementId);
 
-    if (inputElement.value) {
-      inputElement.classList.add('form-filled');
+    let elementToUpdate = isLabel ? labelElement : inputElement;
+
+    if (inputElement.value.trim().length >= 1) {
+      elementToUpdate?.classList.add(className);
     } else {
-      inputElement.classList.remove('form-filled');
+      elementToUpdate?.classList.remove(className);
+    }
+  }
+
+  onFocus(event: any) {
+    let value = event.target.value;
+    if (value.startsWith('\t') || value.startsWith(' ')) {
+      event.target.value = value.trimStart();
     }
   }
 
@@ -28,6 +38,7 @@ export class ContactComponent implements AfterViewInit {
 
     if (nameInput.value) {
       nameInput.classList.add('form-filled');
+      nameLabel?.classList.add('form-filled-label');
     }
   }
 

@@ -1,4 +1,4 @@
-import { Component, AfterViewInit} from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-contact',
@@ -6,16 +6,22 @@ import { Component, AfterViewInit} from '@angular/core';
   styleUrls: ['./contact.component.scss'],
 })
 export class ContactComponent implements AfterViewInit {
-
   navigateTo(url: string) {
-    window.open(url, "_blank");
+    window.open(url, '_blank');
   }
 
-  ngAfterViewInit() {
-  }
+  ngAfterViewInit() {}
 
-  updateFormFilledStatus(event: any, inputElementId: string, labelElementId: string, className: string, isLabel: boolean = false) {
-    let inputElement = (<HTMLInputElement>document.getElementById(inputElementId));
+  updateFormFilledStatus(
+    event: any,
+    inputElementId: string,
+    labelElementId: string,
+    className: string,
+    isLabel: boolean = false
+  ) {
+    let inputElement = <HTMLInputElement>(
+      document.getElementById(inputElementId)
+    );
     let labelElement = document.getElementById(labelElementId);
 
     let elementToUpdate = isLabel ? labelElement : inputElement;
@@ -35,7 +41,7 @@ export class ContactComponent implements AfterViewInit {
   }
 
   nameLabelUp() {
-    let nameInput = (<HTMLInputElement>document.getElementById('nameInput'));
+    let nameInput = <HTMLInputElement>document.getElementById('nameInput');
     let nameLabel = document.getElementById('nameLabel');
 
     nameLabel?.classList.add('input-name-label-focused');
@@ -47,7 +53,7 @@ export class ContactComponent implements AfterViewInit {
   }
 
   nameLabelDown() {
-    let nameInput = (<HTMLInputElement>document.getElementById('nameInput'));
+    let nameInput = <HTMLInputElement>document.getElementById('nameInput');
     let nameLabel = document.getElementById('nameLabel');
 
     if (!nameInput.value) {
@@ -60,9 +66,8 @@ export class ContactComponent implements AfterViewInit {
     }
   }
 
-
   emailLabelUp() {
-    let emailInput = (<HTMLInputElement>document.getElementById('emailInput'));
+    let emailInput = <HTMLInputElement>document.getElementById('emailInput');
     let emailLabel = document.getElementById('emailLabel');
 
     emailLabel?.classList.add('input-email-label-focused');
@@ -73,7 +78,7 @@ export class ContactComponent implements AfterViewInit {
   }
 
   emailLabelDown() {
-    let emailInput = (<HTMLInputElement>document.getElementById('emailInput'));
+    let emailInput = <HTMLInputElement>document.getElementById('emailInput');
     let emailLabel = document.getElementById('emailLabel');
 
     if (!emailInput.value) {
@@ -87,7 +92,7 @@ export class ContactComponent implements AfterViewInit {
   }
 
   textLabelUp() {
-    let textarea = (<HTMLTextAreaElement>document.getElementById('textArea'));
+    let textarea = <HTMLTextAreaElement>document.getElementById('textArea');
     let textLabel = document.getElementById('textLabel');
 
     textLabel?.classList.add('textarea-label-focused');
@@ -98,7 +103,7 @@ export class ContactComponent implements AfterViewInit {
   }
 
   textLabelDown() {
-    let textarea = (<HTMLTextAreaElement>document.getElementById('textArea'));
+    let textarea = <HTMLTextAreaElement>document.getElementById('textArea');
     let textLabel = document.getElementById('textLabel');
 
     if (!textarea.value) {
@@ -115,5 +120,11 @@ export class ContactComponent implements AfterViewInit {
     document.getElementById(elementId)?.scrollIntoView({ behavior: 'smooth' });
   }
 
-
+  scrollTo(event: MouseEvent, targetId: string): void {
+    event.preventDefault();
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 }

@@ -319,3 +319,14 @@
     }
   }
 }
+
+.legal-notice-container {
+  display: none; //At first
+  position: fixed;
+  overflow: auto;
+  z-index: 9;
+  bottom: 0;
+  width: 100%;
+  height: 100vh;
+  background: #fffcf3;
+}

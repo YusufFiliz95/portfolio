@@ -322,6 +322,7 @@
 
 
 .legal-notice-container {
+  display: none; //At first
   position: fixed;
   overflow: auto;
   z-index: 9;

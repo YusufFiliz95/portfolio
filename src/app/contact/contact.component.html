@@ -3,7 +3,7 @@
     <div class="contact">
       <h1>Say Hi!</h1>
       <p class="contact-form-headline">Want to discuss a new project?</p>
-      <p class="contact-form-text">Say hello! let's discuss your ideas and make it happen</p>
+      <p class="contact-form-text">Feel free to reach out and share your ideas. Let's collaborate to bring them to life!</p>
       <div class="contact-form">
         <div class="form-input-container">
           <label id="nameLabel">Your name</label>
@@ -31,14 +31,37 @@
         <button>Send message</button>
       </div>
     </div>
-    <div class="legal-notice">
-      <div class="name">
-        <img src="" alt="">
-        <p>© Yusuf Filiz 2023</p>
+    <div class="scroll-up">
+      <div class="scroll-up-container" (click)="scrollToElement('title')">
+        <img src="assets/img/arrow.svg" alt="">
       </div>
-      <div class="social-links">
-        <div class="icons"></div>
-        <p>Legal notice</p>
+    </div>
+    <div class="legal-notice">
+      <div class="logo-socials">
+        <div class="logo">
+          <div (click)="scrollToElement('title')">
+            <p>[
+              <span class="letter letterY">Y</span>
+              <span class="letter letterF">F</span>
+              ]
+            </p>
+          </div>
+          <div class="icons">
+            <div>
+              <img src="assets/img/github.svg" alt="">
+            </div>
+            <div>
+              <img src="assets/img/email.svg" alt="">
+            </div>
+            <div>
+              <img src="assets/img/linkedin.svg" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="name-legal-notice">
+        <p class="name-date">© Yusuf Filiz 2023</p>
+        <p class="legal-notice-text">Legal notice</p>
       </div>
     </div>
   </div>

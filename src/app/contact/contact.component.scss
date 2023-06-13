@@ -2,6 +2,10 @@
   height: 100vh;
   width: 100%;
   color: white;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 
   .contact-legal-notice {
     width: 100%;
@@ -10,7 +14,7 @@
     clip-path: polygon(0% 0%, 0% 8%, 100% 24%, 100% 100%, 0% 100%);
 
     .contact {
-      height: 90%;
+      height: 80%;
       width: 100%;
 
       h1 {
@@ -47,8 +51,11 @@
     }
 
     .legal-notice {
-      height: 10%;
+      height: 15%;
       width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
     }
 
     .contact-form {
@@ -77,7 +84,7 @@
           font-size: 16px;
         }
       }
-      
+
       input {
         position: relative;
         width: 617px;
@@ -124,7 +131,7 @@
 
       .textarea-label {
         position: absolute;
-        top: 15px;
+        top: 25px;
         left: 17px;
         padding-left: 8px;
         padding-right: 8px;
@@ -149,15 +156,13 @@
         background: transparent;
         border: 0;
         box-shadow: 0 2px 0 0 #fffcf3;
-        padding: 15px 25px;
+        padding: 25px 25px;
         gap: 10px;
         font-family: "Overpass";
         font-style: normal;
         font-weight: 400;
         font-size: 16px;
         color: #fffcf3;
-        padding-top: 30px;
-        padding-bottom: 30px;
         resize: none;
         cursor: pointer;
         transition: 100ms ease-in-out;
@@ -203,6 +208,109 @@
           font-weight: 800;
         }
       }
+    }
+  }
+}
+
+
+.logo-socials {
+  width: 100%;
+
+  .logo {
+    margin-left: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    span {
+      margin-left: 2px;
+      margin-right: 1px;
+      cursor: pointer;
+    }
+
+    p {
+      cursor: pointer;
+      margin: 0;
+      padding: 0;
+      font-size: 40px;
+      font-weight: 800;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .letterY {
+      position: relative;
+      left: 2px;
+    }
+
+    .letterF {
+      position: relative;
+      top: 8px;
+      right: 2px;
+    }
+  }
+
+  .icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 80px;
+    width: 200px;
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      height: 40px;
+    }
+    img {
+      width: 30px;
+      cursor: pointer;
+      transition: 150ms ease-in-out;
+      &:hover {
+        padding-bottom: 20px;
+      }
+    }
+  }
+}
+
+.name-legal-notice {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .name-date {
+    margin: 0;
+    margin-left: 80px;
+    font-size: 23px;
+    font-family: "Overpass";
+  }
+
+  .legal-notice-text {
+    font-family: "Overpass";
+    font-size: 16px;
+    margin-right: 80px;
+  }
+}
+
+.scroll-up {
+  height: 5%;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  .scroll-up-container {
+    margin-top: 100px;
+    height: fit-content;
+    margin-right: 69px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    transition: 150ms ease-in-out;
+    cursor: pointer;
+    &:hover {
+      padding-bottom: 40px;
     }
   }
 }

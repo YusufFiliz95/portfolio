@@ -106,4 +106,8 @@ export class ContactComponent implements AfterViewInit {
       textarea.classList.add('form-filled');
     }
   }
+
+  scrollToElement(elementId: string): void {
+    document.getElementById(elementId)?.scrollIntoView({ behavior: 'smooth' });
+  }
 }

@@ -19,13 +19,13 @@
   <div class="menu" [class.active]="isActive">
     <div class="menu-info">
       <span>
-        <p class="p-about">About me</p>
+        <p class="p-about" (click)="scrollToElement('aboutMe')" (click)="toggleActive()">About me</p>
       </span>
       <span>
-        <p class="p-skills">My skills</p>
+        <p class="p-skills" (click)="scrollToElement('mySkills')" (click)="toggleActive()">My skills</p>
       </span>
       <span>
-        <p class="p-portfolio">Portfolio</p>
+        <p class="p-portfolio" (click)="scrollToElement('portfolio')" (click)="toggleActive()">Portfolio</p>
       </span>
     </div>
     <div class="menu-socials">
@@ -47,13 +47,13 @@
 
       <div class="social-network">
         <div class="icons">
-          <div class="icon">
+          <div class="icon" (click)="navigateTo('https://github.com/YusufFiliz95')">
             <img src="assets/img/github.svg" draggable="false" alt="">
           </div>
           <div class="icon">
             <img src="assets/img/email.svg" draggable="false" alt="">
           </div>
-          <div class="icon">
+          <div class="icon" (click)="navigateTo('https://www.linkedin.com/in/yusuf-filiz-b75b2a196')">
             <img src="assets/img/linkedin.svg" draggable="false" alt="">
           </div>
         </div>

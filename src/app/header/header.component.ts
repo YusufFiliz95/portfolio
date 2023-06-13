@@ -12,6 +12,9 @@ export class HeaderComponent {
   isHovered = false;
   showPopup = false;
 
+  navigateTo(url: string) {
+    window.open(url, "_blank");
+  }
 
   toggleActive() {
     if(this.canClick) {
@@ -46,5 +49,9 @@ export class HeaderComponent {
         this.canClick = true;
       }, 2400);
     }
+  }
+
+  scrollToElement(elementId: string): void {
+    document.getElementById(elementId)?.scrollIntoView({ behavior: 'smooth' });
   }
 }

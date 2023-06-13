@@ -7,6 +7,10 @@ import { Component, AfterViewInit} from '@angular/core';
 })
 export class ContactComponent implements AfterViewInit {
 
+  navigateTo(url: string) {
+    window.open(url, "_blank");
+  }
+
   ngAfterViewInit() {
   }
 
@@ -110,4 +114,5 @@ export class ContactComponent implements AfterViewInit {
   scrollToElement(elementId: string): void {
     document.getElementById(elementId)?.scrollIntoView({ behavior: 'smooth' });
   }
+
 }

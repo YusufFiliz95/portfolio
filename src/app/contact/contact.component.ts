@@ -115,4 +115,11 @@ export class ContactComponent implements AfterViewInit {
     document.getElementById(elementId)?.scrollIntoView({ behavior: 'smooth' });
   }
 
+  scrollTo(event: MouseEvent, targetId: string): void {
+    event.preventDefault();
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 }

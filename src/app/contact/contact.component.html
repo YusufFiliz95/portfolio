@@ -61,12 +61,15 @@
       </div>
       <div class="name-legal-notice">
         <p class="name-date">© Yusuf Filiz 2023</p>
-        <p class="legal-notice-text">Legal notice</p>
+        <p class="legal-notice-text" (click)="showLegalNotice()">Legal notice</p>
       </div>
     </div>
   </div>
 </div>
-<div class="legal-notice-container">
+<div  class="legal-notice-container" [class.show]="isLegalNoticeVisible">
+  <div class="close-legal-notice-container">
+    <img src="assets/img/close.svg" alt="" (click)="hideLegalNotice()">
+  </div>
   <h1>Impressum</h1>
 <p><b>Verantwortliche Instanz:</b><br/>
   Yusuf Filiz<br/>

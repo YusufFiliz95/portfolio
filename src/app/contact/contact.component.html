@@ -69,9 +69,9 @@
 </div>
 <div class="legal-notice-container" [ngClass]="{ 'show': isLegalNoticeVisible$ | async }">
   <div class="close-legal-notice-container">
-    <p (click)="switchToGerman()" class="language-german">DE</p>
+    <p id="pgerman" (click)="switchToGerman()" class="language-german chosen-language">DE</p>
     <p>|</p>
-    <p (click)="switchToEnglish()" class="language-english">EN</p>
+    <p id="penglish" (click)="switchToEnglish()" class="language-english">EN</p>
     <img src="assets/img/close.svg" alt="" (click)="hideLegalNotice()">
   </div>
   <div id="germanText" *ngIf="currentLanguage == 'de'" class="imprint-german">

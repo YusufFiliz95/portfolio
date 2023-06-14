@@ -392,18 +392,38 @@
   border-bottom: 1px solid black;
   right: 0;
   top: 0;
-  color: white;
+  color: black;
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
 
   .language-german {
+    transition: 100ms ease-in-out;
     cursor: pointer;
+    padding: 10px;
+    border-radius: 10px;
+    &:hover {
+      background-color: #00000020;
+    }
   }
 
   .language-english {
+    transition: 100ms ease-in-out;
     cursor: pointer;
+    padding: 10px;
+    border-radius: 10px;
+    &:hover {
+      background-color: #00000020;
+    }
+  }
+
+  .language-to-choose {
+    color: #000000;
+  }
+
+  .chosen-language {
+    color: #5988ff;
   }
 
   p {
@@ -419,7 +439,7 @@
     border-radius: 10px;
     cursor: pointer;
     &:hover {
-      background-color: #ffffff42;
+      background-color: #00000020;
     }
   }
 }

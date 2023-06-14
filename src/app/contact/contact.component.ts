@@ -14,10 +14,14 @@ export class ContactComponent implements AfterViewInit {
   constructor(private scrollService: ScrollService) {}
 
   switchToGerman() {
+    document.getElementById('pgerman')?.classList.add('chosen-language');
+    document.getElementById('penglish')?.classList.remove('chosen-language');
     this.currentLanguage = 'de';
   }
 
   switchToEnglish() {
+    document.getElementById('penglish')?.classList.add('chosen-language');
+    document.getElementById('pgerman')?.classList.remove('chosen-language');
     this.currentLanguage = 'en';
   }
 

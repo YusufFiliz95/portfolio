@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ScrollService } from '../scroll.service';
 
 @Component({
   selector: 'app-header',
@@ -11,14 +12,23 @@ export class HeaderComponent {
   changeColor = false;
   isHovered = false;
   showPopup = false;
+  isLegalNoticeVisible$ = this.scrollService.isLegalNoticeVisible$;
+
+  constructor(private scrollService: ScrollService) {}
 
   navigateTo(url: string) {
     window.open(url, "_blank");
   }
 
   toggleActive() {
-    if(this.canClick) {
+    if (this.canClick) {
       this.isActive = !this.isActive;
+
+      if (this.isActive) {
+        document.body.classList.add('no-scroll');
+      } else {
+        document.body.classList.remove('no-scroll');
+      }
 
       this.canClick = false;
       setTimeout(() => {

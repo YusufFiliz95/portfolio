@@ -5,10 +5,6 @@ import { ScrollService } from '../scroll.service';
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
-  template: `
-  <p class="name-date">© Yusuf Filiz 2023</p>
-  <p class="legal-notice-text" (click)="showLegalNotice()">Legal notice</p>
-`,
 })
 export class ContactComponent implements AfterViewInit {
   isLegalNoticeVisible = false;

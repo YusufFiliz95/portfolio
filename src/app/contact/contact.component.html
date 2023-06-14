@@ -66,7 +66,7 @@
     </div>
   </div>
 </div>
-<div  class="legal-notice-container" [class.show]="isLegalNoticeVisible">
+<div class="legal-notice-container" [ngClass]="{ 'show': isLegalNoticeVisible$ | async }">
   <div class="close-legal-notice-container">
     <img src="assets/img/close.svg" alt="" (click)="hideLegalNotice()">
   </div>

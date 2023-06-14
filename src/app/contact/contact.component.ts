@@ -1,12 +1,28 @@
 import { Component, AfterViewInit } from '@angular/core';
+import { ScrollService } from '../scroll.service';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
+  template: `
+  <p class="name-date">© Yusuf Filiz 2023</p>
+  <p class="legal-notice-text" (click)="showLegalNotice()">Legal notice</p>
+`,
 })
 export class ContactComponent implements AfterViewInit {
   isLegalNoticeVisible = false;
+  isLegalNoticeVisible$ = this.scrollService.isLegalNoticeVisible$;
+
+  constructor(private scrollService: ScrollService) {}
+
+  hideLegalNotice() {
+    this.scrollService.hideLegalNotice();
+  }
+
+  showLegalNotice() {
+    this.scrollService.showLegalNotice();
+  }
 
   navigateTo(url: string) {
     window.open(url, '_blank');
@@ -121,16 +137,6 @@ export class ContactComponent implements AfterViewInit {
 
   scrollToElement(elementId: string): void {
     document.getElementById(elementId)?.scrollIntoView({ behavior: 'smooth' });
-  }
-
-  showLegalNotice() {
-    document.body.classList.add('no-scroll'); // Hinzufügen der 'no-scroll' Klasse
-    this.isLegalNoticeVisible = true;
-  }
-
-  hideLegalNotice() {
-    document.body.classList.remove('no-scroll'); // Entfernen der 'no-scroll' Klasse
-    this.isLegalNoticeVisible = false;
   }
 
   scrollTo(event: MouseEvent, targetId: string): void {

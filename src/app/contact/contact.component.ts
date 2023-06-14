@@ -9,8 +9,17 @@ import { ScrollService } from '../scroll.service';
 export class ContactComponent implements AfterViewInit {
   isLegalNoticeVisible = false;
   isLegalNoticeVisible$ = this.scrollService.isLegalNoticeVisible$;
+  currentLanguage = 'de';
 
   constructor(private scrollService: ScrollService) {}
+
+  switchToGerman() {
+    this.currentLanguage = 'de';
+  }
+
+  switchToEnglish() {
+    this.currentLanguage = 'en';
+  }
 
   hideLegalNotice() {
     this.scrollService.hideLegalNotice();

@@ -26,6 +26,10 @@
         font-weight: 800;
         font-size: 78px;
         margin-bottom: 50px;
+        transition: 100ms ease-in-out;
+        &:hover {
+          color: #5988ff;
+        }
       }
 
       .contact-form-headline {
@@ -318,6 +322,10 @@
     margin-left: 80px;
     font-size: 23px;
     font-family: "Overpass";
+    transition: 100ms ease-in-out;
+    &:hover {
+      color: #5988ff;
+    }
   }
 
   .legal-notice-text {

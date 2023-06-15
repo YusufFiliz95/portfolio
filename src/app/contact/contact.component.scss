@@ -63,12 +63,19 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      gap: 60px;
+      gap: 40px;
 
       .form-input-container {
         position: relative;
         display: flex;
-        align-items: center;
+        flex-direction: column;
+        img {
+          width: 30px;
+          position: absolute;
+          right: 10px;
+          top: 10px;
+          transform: rotate(-5deg);
+        }
         label {
           position: absolute;
           top: 21px;
@@ -83,6 +90,26 @@
           font-weight: 400;
           font-size: 16px;
         }
+      }
+
+      .required-text {
+        text-align: start;
+        margin: 0;
+        font-size: 16px;
+        margin-top: 6px;
+        margin-left: 35px;
+        color: #e61c40;
+        font-family: "Overpass";
+      }
+
+      .required-text-input {
+        text-align: start;
+        margin: 0;
+        font-size: 15px;
+        margin-top: 10px;
+        margin-left: 35px;
+        color: #e61c40;
+        font-family: "Overpass";
       }
 
       input {
@@ -127,6 +154,13 @@
 
       .textarea-container {
         position: relative;
+        img {
+          width: 30px;
+          position: absolute;
+          right: 10px;
+          top: 10px;
+          transform: rotate(-5deg);
+        }
       }
 
       .textarea-label {
@@ -331,29 +365,29 @@
   font-family: "Overpass";
   transition: transform 400ms ease-out;
   p {
-    margin-left: 40px;
-    margin-right: 40px;
+    margin-left: 80px;
+    margin-right: 80px;
     text-align: justify;
   }
 
   h1 {
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-
-  h2 {
-    margin-left: 30px;
-    margin-right: 30px;
-  }
-
-  h3 {
     margin-left: 40px;
     margin-right: 40px;
   }
 
+  h2 {
+    margin-left: 60px;
+    margin-right: 60px;
+  }
+
+  h3 {
+    margin-left: 80px;
+    margin-right: 80px;
+  }
+
   ul {
-    margin-left: 30px;
-    margin-right: 30px;
+    margin-left: 60px;
+    margin-right: 60px;
   }
 }
 
@@ -442,4 +476,8 @@
       background-color: #00000020;
     }
   }
+}
+
+.hide {
+  opacity: 0;
 }

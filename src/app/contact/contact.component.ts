@@ -39,27 +39,44 @@ export class ContactComponent implements AfterViewInit {
 
   ngAfterViewInit() {}
 
-  updateFormFilledStatus(
-    event: any,
-    inputElementId: string,
-    labelElementId: string,
-    className: string,
-    isLabel: boolean = false
 
-  ) {
-    let inputElement = <HTMLInputElement>(
-      document.getElementById(inputElementId)
-    );
-    let labelElement = document.getElementById(labelElementId);
+    validationRules = {
+      name: new RegExp('^.{2,}$'),
+      email: new RegExp('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$'),
+      text: new RegExp('^.{20,}$')
+    };
 
-    let elementToUpdate = isLabel ? labelElement : inputElement;
+    updateFormFilledStatus(
+      event: any,
+      inputElementId: string,
+      labelElementId: string,
+      className: string,
+      isLabel: boolean = false,
+      requiredTextId: string,
+      validationType: string
+    ) {
+      let inputElement = <HTMLInputElement>document.getElementById(inputElementId);
+      let labelElement = document.getElementById(labelElementId);
+      let requiredTextElement = document.getElementById(requiredTextId);
+      let imgElement = document.getElementById(inputElementId + 'Img');
 
-    if (inputElement.value.trim().length >= 1) {
-      elementToUpdate?.classList.add(className);
-    } else {
-      elementToUpdate?.classList.remove(className);
+      let elementToUpdate = isLabel ? labelElement : inputElement;
+
+      if (inputElement.value === '') {
+        elementToUpdate?.classList.remove(className);
+        requiredTextElement?.classList.add('hide');
+        imgElement?.classList.add('hide');
+      } else if (this.validationRules[validationType as keyof typeof this.validationRules].test(inputElement.value)) {
+        elementToUpdate?.classList.add(className);
+        requiredTextElement?.classList.add('hide');
+        imgElement?.classList.remove('hide');
+      } else {
+        elementToUpdate?.classList.remove(className);
+        requiredTextElement?.classList.remove('hide');
+        imgElement?.classList.add('hide');
+      }
     }
-  }
+
 
   onFocus(event: any) {
     let value = event.target.value;
@@ -156,3 +173,4 @@ export class ContactComponent implements AfterViewInit {
     }
   }
 }
+

@@ -14,7 +14,7 @@
             (focusout)="nameLabelDown(); updateFormFilledStatus($event, 'nameInput', 'nameLabel', 'form-filled', false, 'requiredNameText', 'name'); updateFormFilledStatus($event, 'nameInput', 'nameLabel', 'form-filled-label', true, 'requiredNameText', 'name');"
             (keyup)="updateFormFilledStatus($event, 'nameInput', 'nameLabel', 'form-filled', false, 'requiredNameText', 'name'); updateFormFilledStatus($event, 'nameInput', 'nameLabel', 'form-filled-label', true, 'requiredNameText', 'name');"
             type="text">
-          <p id="requiredNameText" class="required-text-input hide">Bitte geben Sie mindestens 2 Zeichen ein.</p>
+          <p id="requiredNameText" class="required-text-input hide">Please enter at least 2 characters.</p>
         </div>
         <div class="form-input-container">
           <img id="emailInputImg" src="assets/img/fullfilled.svg" alt="" class="hide">
@@ -24,7 +24,7 @@
             (focusout)="emailLabelDown(); updateFormFilledStatus($event, 'emailInput', 'emailLabel', 'form-filled', false, 'requiredEmailText', 'email'); updateFormFilledStatus($event, 'emailInput', 'emailLabel', 'form-filled-label', true, 'requiredEmailText', 'email');"
             (keyup)="updateFormFilledStatus($event, 'emailInput', 'emailLabel', 'form-filled', false, 'requiredEmailText', 'email'); updateFormFilledStatus($event, 'emailInput', 'emailLabel', 'form-filled-label', true, 'requiredEmailText', 'email');"
             type="email">
-          <p id="requiredEmailText" class="required-text-input hide">Bitte geben Sie eine gültige E-Mail-Adresse ein.</p>
+          <p id="requiredEmailText" class="required-text-input hide">Please enter a valid email address.</p>
         </div>
         <div class="textarea-container">
           <img id="textAreaImg" src="assets/img/fullfilled.svg" alt="" class="hide">
@@ -33,7 +33,7 @@
             (focus)="textLabelUp();"
             (focusout)="textLabelDown(); updateFormFilledStatus($event, 'textArea', 'textLabel', 'form-filled', false, 'requiredMessageText', 'text'); updateFormFilledStatus($event, 'textArea', 'textLabel', 'form-filled-label', true, 'requiredMessageText', 'text');"
             (keyup)="updateFormFilledStatus($event, 'textArea', 'textLabel', 'form-filled', false, 'requiredMessageText', 'text'); updateFormFilledStatus($event, 'textArea', 'textLabel', 'form-filled-label', true, 'requiredMessageText', 'text');"></textarea>
-          <p id="requiredMessageText" class="required-text hide">Bitte geben Sie mindestens 20 Zeichen ein.</p>
+          <p id="requiredMessageText" class="required-text hide">Please enter at least 20 characters.</p>
         </div>
         <button>Send message</button>
       </div>

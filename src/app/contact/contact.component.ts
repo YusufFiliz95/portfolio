@@ -42,7 +42,7 @@ export class ContactComponent implements AfterViewInit {
   validationRules = {
     name: new RegExp('^.{2,}$'),
     email: new RegExp('^\\S+@\\S+\\.\\S+$'),
-    text: new RegExp('^[\\s\\S]{20,}$'),
+    text: new RegExp('^.{20,}$')
   };
 
   updateFormFilledStatus(

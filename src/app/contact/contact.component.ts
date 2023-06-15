@@ -176,4 +176,8 @@ export class ContactComponent implements AfterViewInit {
       targetElement.scrollIntoView({ behavior: 'smooth' });
     }
   }
+
+  public sendEmail() {
+    window.location.href = 'mailto:y.filiz.ch@gmail.com';
+  }
 }

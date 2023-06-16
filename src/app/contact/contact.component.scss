@@ -28,9 +28,6 @@
         font-size: 78px;
         margin-bottom: 50px;
         transition: 100ms ease-in-out;
-        &:hover {
-          color: #5988ff;
-        }
       }
 
       .contact-form-headline {
@@ -78,13 +75,13 @@
           width: 30px;
           position: absolute;
           right: 10px;
-          top: 10px;
+          top: 15px;
           transform: rotate(-5deg);
         }
         label {
           position: absolute;
           top: 21px;
-          left: 17px;
+          left: 10px;
           padding-left: 8px;
           padding-right: 8px;
           transition: top 0.3s ease, color 0.3s ease;
@@ -100,9 +97,8 @@
       .required-text {
         text-align: start;
         margin: 0;
-        font-size: 16px;
+        font-size: 14px;
         margin-top: 6px;
-        margin-left: 35px;
         color: #e61c40;
         font-family: "Overpass";
       }
@@ -110,21 +106,24 @@
       .required-text-input {
         text-align: start;
         margin: 0;
-        font-size: 15px;
-        margin-top: 10px;
-        margin-left: 35px;
+        font-size: 14px;
+        margin-top: 11px;
         color: #e61c40;
         font-family: "Overpass";
       }
 
       input {
         position: relative;
-        width: 617px;
+        line-height: 10px;
+        width: 599px;
         height: 30px;
         background: transparent;
         border: 0;
         box-shadow: 0 2px 0 0 #fffcf3;
-        padding: 15px 25px;
+        padding-right: 49px;
+        padding-left: 19px;
+        padding-top: 17px;
+        padding-bottom: 13px;
         gap: 10px;
         font-family: "Overpass";
         font-style: normal;
@@ -171,7 +170,7 @@
       .textarea-label {
         position: absolute;
         top: 25px;
-        left: 17px;
+        left: 10px;
         padding-left: 8px;
         padding-right: 8px;
         transition: top 0.3s ease, color 0.3s ease;
@@ -195,7 +194,10 @@
         background: transparent;
         border: 0;
         box-shadow: 0 2px 0 0 #fffcf3;
-        padding: 25px 25px;
+        padding-right: 30px;
+        padding-left: 20px;
+        padding-top: 25px;
+        padding-bottom: 25px;
         gap: 10px;
         font-family: "Overpass";
         font-style: normal;
@@ -210,6 +212,30 @@
         &:hover {
           box-shadow: 0 0 0 4px #fffcf3;
         }
+      }
+
+      .contact-message::-webkit-scrollbar {
+        width: 8px;
+        background-color: transparent;
+      }
+
+      .contact-message::-webkit-scrollbar-track {
+        width: 8px;
+        background-color: #000000;
+      }
+
+      .contact-message::-webkit-scrollbar-thumb {
+        background-color: #5988ff;
+        width: 6px;
+        border-radius: 6px;
+      }
+
+      .contact-message::-webkit-scrollbar-thumb:hover {
+        background-color: #8fafff;
+      }
+
+      .contact-message::-webkit-scrollbar-button {
+        display: none;
       }
 
       .contact-message:focus {

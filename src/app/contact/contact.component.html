@@ -20,6 +20,7 @@
           <img id="emailInputImg" src="assets/img/fullfilled.svg" alt="" class="hide">
           <label id="emailLabel">Your email</label>
           <input id="emailInput"
+          maxlength="70"
             (focus)="emailLabelUp();"
             (focusout)="emailLabelDown(); updateFormFilledStatus($event, 'emailInput', 'emailLabel', 'form-filled', false, 'requiredEmailText', 'email'); updateFormFilledStatus($event, 'emailInput', 'emailLabel', 'form-filled-label', true, 'requiredEmailText', 'email');"
             (keyup)="updateFormFilledStatus($event, 'emailInput', 'emailLabel', 'form-filled', false, 'requiredEmailText', 'email'); updateFormFilledStatus($event, 'emailInput', 'emailLabel', 'form-filled-label', true, 'requiredEmailText', 'email');"

@@ -54,24 +54,21 @@ export class ContactComponent implements AfterViewInit {
     requiredTextId: string,
     validationType: string
   ) {
-    let inputElement = <HTMLInputElement>(
-      document.getElementById(inputElementId)
-    );
+    let inputElement = <HTMLInputElement>document.getElementById(inputElementId);
     let labelElement = document.getElementById(labelElementId);
     let requiredTextElement = document.getElementById(requiredTextId);
     let imgElement = document.getElementById(inputElementId + 'Img');
 
     let elementToUpdate = isLabel ? labelElement : inputElement;
 
+    // remove line breaks before validating
+    let inputValueWithoutLineBreaks = inputElement.value.replace(/\n/g, '');
+
     if (inputElement.value === '') {
       elementToUpdate?.classList.remove(className);
       requiredTextElement?.classList.add('hide');
       imgElement?.classList.add('hide');
-    } else if (
-      this.validationRules[
-        validationType as keyof typeof this.validationRules
-      ].test(inputElement.value)
-    ) {
+    } else if (this.validationRules[validationType as keyof typeof this.validationRules].test(inputValueWithoutLineBreaks)) {
       elementToUpdate?.classList.add(className);
       requiredTextElement?.classList.add('hide');
       imgElement?.classList.remove('hide');
@@ -81,6 +78,7 @@ export class ContactComponent implements AfterViewInit {
       imgElement?.classList.add('hide');
     }
   }
+
 
   onFocus(event: any) {
     let value = event.target.value;

@@ -109,6 +109,9 @@
   height: 20%;
   display: flex;
   justify-content: center;
+  transition: opacity 1s, transform 1s; /* Added delay of 2s to the animation */
+  opacity: 0;
+  transform: translateX(-80%);
   div {
     width: 1239px;
     display: flex;
@@ -124,12 +127,14 @@
 .text-padding, .about-me-img {
   opacity: 0;
   transform: translateX(-100%);
-  transition: opacity 2s, transform 2s;
+  transition: opacity 1s, transform 1s;
+  visibility: hidden;
 }
 
 .text-padding.animate {
   opacity: 1;
   transform: translateX(0);
+  visibility: visible;
 }
 
 .about-me-img {
@@ -137,6 +142,12 @@
 }
 
 .about-me-img.animate {
+  opacity: 1;
+  transform: translateX(0);
+  visibility: visible;
+}
+
+.arrow-down.animate {
   opacity: 1;
   transform: translateX(0);
 }

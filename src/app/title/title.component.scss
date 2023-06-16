@@ -7,6 +7,7 @@
 }
 
 .title-headline {
+  animation: slideInFromLeft 1s ease-out;
   height: 80vh;
   width: 920px;
   display: flex;
@@ -25,6 +26,7 @@
 }
 
 .line-name {
+  animation: slideInFromRight 1s ease-out;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -54,6 +56,8 @@
 }
 
 .title-email {
+  opacity: 0;
+  animation: show 500ms ease-out 1s forwards;
   display: flex;
   align-items: flex-end;
   width: 50%;
@@ -89,6 +93,8 @@
 }
 
 .arrow-text {
+  transform: scale(0);
+  animation: showScroll 500ms ease-out 1.5s forwards;
   width: 50px;
   height: fit-content;
   display: flex;
@@ -113,5 +119,39 @@
   }
   100% {
     transform: translateY(-30px);
+  }
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(150%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes show {
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes showScroll {
+  100% {
+    transform: scale(1);
   }
 }

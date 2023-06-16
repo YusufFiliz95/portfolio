@@ -120,3 +120,23 @@
     }
   }
 }
+
+.text-padding, .about-me-img {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 2s, transform 2s;
+}
+
+.text-padding.animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.about-me-img {
+  transform: translateX(100%);
+}
+
+.about-me-img.animate {
+  opacity: 1;
+  transform: translateX(0);
+}

@@ -1,4 +1,4 @@
-import { Component, ViewChildren, ElementRef, QueryList } from '@angular/core';
+import { Component, ViewChildren, ElementRef, QueryList, ViewChild, AfterViewInit } from '@angular/core';
 import { Project } from './project.model';
 
 @Component({
@@ -9,6 +9,7 @@ import { Project } from './project.model';
 
 export class PortfolioComponent {
   @ViewChildren('project', { read: ElementRef }) projectContainers!: QueryList<ElementRef>;
+  @ViewChild('arrowDown', { read: ElementRef }) arrowDown!: ElementRef;
 
   projects: Project[] = [
     new Project(
@@ -59,6 +60,7 @@ export class PortfolioComponent {
 
   ngAfterViewInit(): void {
     this.observeProjectsOnIntersect();
+    this.observeArrowDownOnIntersect();
   }
 
   observeProjectsOnIntersect(): void {
@@ -74,6 +76,7 @@ export class PortfolioComponent {
           const index = Array.from(this.projectContainers.toArray()).findIndex(
             (projectContainer) => projectContainer.nativeElement === entry.target
           );
+          entry.target.classList.remove('d-none');
           entry.target.classList.add(index % 2 === 0 ? 'animate-from-left' : 'animate-from-right');
         }
       });
@@ -82,5 +85,23 @@ export class PortfolioComponent {
     this.projectContainers.forEach((projectContainer) => {
       observer.observe(projectContainer.nativeElement);
     });
+  }
+
+  observeArrowDownOnIntersect(): void {
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1,
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-from-left');
+        }
+      });
+    }, options);
+
+    observer.observe(this.arrowDown.nativeElement);
   }
 }

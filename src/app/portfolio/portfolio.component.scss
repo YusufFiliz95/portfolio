@@ -333,6 +333,13 @@
   }
 }
 
+.animate-from-left {
+  animation: 500ms ease-out 0s 1 slideInFromLeft forwards;
+}
+
+.animate-from-right {
+  animation: 500ms ease-out 0s 1 slideInFromRight forwards;
+}
 
 @keyframes slideInFromLeft {
   from {
@@ -362,4 +369,8 @@
 
 .animate-from-right {
   animation: 500ms ease-out 0s 1 slideInFromRight;
+}
+
+.d-none {
+  opacity: 0 !important;
 }

@@ -4,7 +4,7 @@
     <p>This page is a sample of my work - please feel free to try them out.</p>
   </div>
   <div class="projects-section">
-    <div *ngFor="let project of projects; index as i" class="project" #project>
+    <div *ngFor="let project of projects; index as i" class="project d-none" #project>
       <div class="project-image-container" *ngIf="i % 2 == 0">
         <img [src]="project.image" alt="" class="project-image" draggable="false">
         <div class="project-border">

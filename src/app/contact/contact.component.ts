@@ -37,8 +37,6 @@ export class ContactComponent implements AfterViewInit {
     window.open(url, '_blank');
   }
 
-  ngAfterViewInit() {}
-
   validationRules = {
     name: new RegExp('^.{2,}$'),
     email: new RegExp('^\\S+@\\S+\\.\\S+$'),
@@ -178,4 +176,26 @@ export class ContactComponent implements AfterViewInit {
   public sendEmail() {
     window.location.href = 'mailto:y.filiz.ch@gmail.com';
   }
+
+  ngAfterViewInit() {
+    const elements = Array.from(document.querySelector('.contact')?.children || []);
+
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('slideInDown');
+        }
+      });
+    }, observerOptions);
+
+    elements.forEach(element => observer.observe(element));
+  }
+
 }

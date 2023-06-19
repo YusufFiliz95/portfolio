@@ -105,10 +105,6 @@ export class MySkillsComponent {
           setTimeout(() => {
             htmlElement.classList.add('animate');
           }, delay);
-        } else {
-          setTimeout(() => {
-            htmlElement.classList.remove('animate');
-          }, delay);
         }
       });
     }, options);
@@ -132,10 +128,6 @@ export class MySkillsComponent {
         if (entry.isIntersecting) {
           setTimeout(() => {
             entry.target.classList.add('animate');
-          }, delay);
-        } else {
-          setTimeout(() => {
-            entry.target.classList.remove('animate');
           }, delay);
         }
       });

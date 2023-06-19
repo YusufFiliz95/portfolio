@@ -18,9 +18,9 @@ export class AboutMeComponent implements AfterViewInit {
 
   observeElements() {
     const options = {
-      root: null, // relative to document viewport
-      rootMargin: '0px', // margin around root. Values are similar to css property. Unitless values not allowed
-      threshold: 0.1 // visible amount of item shown in relation to root
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
     };
 
     let observer = new IntersectionObserver((entries, observer) => {

@@ -6,8 +6,7 @@
       </span>
       <div class="skills-icon-container">
         <div class="icons">
-          <div class="icon" *ngFor="let icon of icons; let i = index" (mouseover)="onMouseOver(i)"
-            (mouseleave)="onMouseLeave(i)">
+          <div class="icon" #animatedIcon *ngFor="let icon of icons; let i = index" (mouseover)="onMouseOver(i)" (mouseleave)="onMouseLeave(i)">
             <div class="icons-hover">
               <img class="icon-img" [src]="icons[i]" [alt]="skills[i]" [class.fade]="isHovered[i]">
               <img class="icon-img" [src]="iconshover[i]" [alt]="skills[i]" [class.fade]="!flips[i]">

@@ -60,6 +60,7 @@
       align-items: center;
     }
     .icon {
+      transform: scale(0);
       width: 100px;
       height: 111px;
       display: flex;
@@ -127,4 +128,9 @@
       margin-left: 140px;
     }
   }
+}
+
+.animate {
+  transform: scale(1) !important;
+  transition: transform 0.1s ease-in-out;
 }

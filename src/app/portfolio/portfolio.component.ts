@@ -1,6 +1,6 @@
-
+import { Component, ViewChildren, ElementRef, QueryList } from '@angular/core';
 import { Project } from './project.model';
-import { Component } from '@angular/core';
+
 @Component({
   selector: 'app-portfolio',
   templateUrl: './portfolio.component.html',
@@ -8,6 +8,8 @@ import { Component } from '@angular/core';
 })
 
 export class PortfolioComponent {
+  @ViewChildren('project', { read: ElementRef }) projectContainers!: QueryList<ElementRef>;
+
   projects: Project[] = [
     new Project(
       1,
@@ -53,5 +55,32 @@ export class PortfolioComponent {
 
   scrollToElement(elementId: string): void {
     document.getElementById(elementId)?.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  ngAfterViewInit(): void {
+    this.observeProjectsOnIntersect();
+  }
+
+  observeProjectsOnIntersect(): void {
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1,
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const index = Array.from(this.projectContainers.toArray()).findIndex(
+            (projectContainer) => projectContainer.nativeElement === entry.target
+          );
+          entry.target.classList.add(index % 2 === 0 ? 'animate-from-left' : 'animate-from-right');
+        }
+      });
+    }, options);
+
+    this.projectContainers.forEach((projectContainer) => {
+      observer.observe(projectContainer.nativeElement);
+    });
   }
 }

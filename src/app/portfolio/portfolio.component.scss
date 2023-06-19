@@ -374,3 +374,16 @@
 .d-none {
   opacity: 0 !important;
 }
+
+.project {
+  transition: pointer-events 0.5s;
+}
+
+.no-click {
+  pointer-events: none;
+}
+
+.project {
+  transition: pointer-events 0.5s;
+  transition-delay: 0.5s;
+}

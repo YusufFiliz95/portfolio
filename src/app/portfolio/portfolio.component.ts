@@ -76,6 +76,7 @@ export class PortfolioComponent {
           const index = Array.from(this.projectContainers.toArray()).findIndex(
             (projectContainer) => projectContainer.nativeElement === entry.target
           );
+          entry.target.classList.remove('no-click');
           entry.target.classList.remove('d-none');
           entry.target.classList.add(index % 2 === 0 ? 'animate-from-left' : 'animate-from-right');
         }

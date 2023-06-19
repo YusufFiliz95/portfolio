@@ -114,6 +114,7 @@
 }
 
 .arrow-down {
+  transform: scale(0);
   height: 20%;
   display: flex;
   justify-content: center;
@@ -132,5 +133,5 @@
 
 .animate {
   transform: scale(1) !important;
-  transition: transform 0.1s ease-in-out;
+  transition: transform 1s ease-in-out;
 }

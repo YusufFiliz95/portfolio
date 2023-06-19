@@ -1,4 +1,4 @@
-import { Component, ViewChildren, ElementRef, QueryList } from '@angular/core';
+import { Component, ViewChildren, ViewChild, ElementRef, QueryList } from '@angular/core';
 
 @Component({
   selector: 'app-my-skills',
@@ -10,6 +10,9 @@ export class MySkillsComponent {
    * Accesses the list of animatedIcon elements from the DOM.
    */
   @ViewChildren('animatedIcon', { read: ElementRef }) animatedIcons!: QueryList<ElementRef>;
+
+  @ViewChild('arrowDown', { read: ElementRef }) arrowDown!: ElementRef;
+
 
   /**
    * Array that stores paths to icons.
@@ -69,6 +72,7 @@ export class MySkillsComponent {
   ngAfterViewInit(): void {
     this.addTransitionDelayToIcons();
     this.observeElementsOnIntersect();
+    this.observeArrowDownOnIntersect();
   }
 
   /**
@@ -80,9 +84,11 @@ export class MySkillsComponent {
     });
   }
 
-  /**
-   * Observes elements and adds the 'animate' class on intersect.
-   */
+
+/**
+ * This function observes elements on intersection and adds or removes a CSS class to animate them
+ * based on their transition delay.
+ */
   observeElementsOnIntersect(): void {
     const options = {
       root: null,
@@ -110,5 +116,31 @@ export class MySkillsComponent {
     this.animatedIcons.forEach((icon) => {
       observer.observe(icon.nativeElement);
     });
+  }
+
+  observeArrowDownOnIntersect() {
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1,
+    };
+
+    let observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        const delay = parseFloat((entry.target as HTMLElement).style.transitionDelay) * 1000;
+
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('animate');
+          }, delay);
+        } else {
+          setTimeout(() => {
+            entry.target.classList.remove('animate');
+          }, delay);
+        }
+      });
+    }, options);
+
+    observer.observe(this.arrowDown.nativeElement); // Observe the arrow down element
   }
 }

@@ -120,30 +120,30 @@
       cursor: pointer;
       object-fit: cover;
       margin-right: 140px;
-    }
   }
+}
 }
 
 .text-padding, .about-me-img {
   opacity: 0;
-  transform: translateX(-100%);
+  transform: scale(0);
   transition: opacity 1s, transform 1s;
   visibility: hidden;
 }
 
 .text-padding.animate {
   opacity: 1;
-  transform: translateX(0);
+  transform: scale(1);
   visibility: visible;
 }
 
 .about-me-img {
-  transform: translateX(100%);
+  transform: scale(0);
 }
 
 .about-me-img.animate {
   opacity: 1;
-  transform: translateX(0);
+  transform: scale(1);
   visibility: visible;
 }
 

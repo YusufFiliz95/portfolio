@@ -1,5 +1,6 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, ViewChildren, ElementRef, QueryList } from '@angular/core';
 import { ScrollService } from '../scroll.service';
+
 
 @Component({
   selector: 'app-contact',
@@ -10,6 +11,7 @@ export class ContactComponent implements AfterViewInit {
   isLegalNoticeVisible = false;
   isLegalNoticeVisible$ = this.scrollService.isLegalNoticeVisible$;
   currentLanguage = 'de';
+  @ViewChildren('animatedElement', { read: ElementRef }) animatedElements!: QueryList<ElementRef>;
 
   constructor(private scrollService: ScrollService) {}
 
@@ -178,24 +180,35 @@ export class ContactComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    const elements = Array.from(document.querySelector('.contact')?.children || []);
+    // Wenn sich die Liste der Elemente ändert (z. B. durch dynamische Änderungen), starten Sie die Beobachtung erneut
+    this.animatedElements.changes.subscribe(() => {
+      this.observeElements();
+    });
 
+    this.observeElements();
+  }
 
-    const observerOptions = {
-      root: null,
+  observeElements() {
+    const options = {
+      root: null, // Bezieht sich auf den Viewport
       rootMargin: '0px',
-      threshold: 0.1
+      threshold: 0.1 // Beginnt die Animation, wenn 10% des Elements im Viewport sind
     };
 
-    const observer = new IntersectionObserver((entries, observer) => {
+    const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
+          // Fügen Sie die Animationsklasse hinzu, wenn das Element im Viewport ist
           entry.target.classList.add('slideInDown');
+          observer.unobserve(entry.target); // Sobald das Element sichtbar ist, beenden wir die Beobachtung
         }
       });
-    }, observerOptions);
+    }, options);
 
-    elements.forEach(element => observer.observe(element));
+    // Beginnen Sie die Beobachtung für jedes Element
+    this.animatedElements.forEach(element => {
+      observer.observe(element.nativeElement);
+    });
   }
 
 }

@@ -159,7 +159,7 @@ header {
       height: 52px;
       border-bottom: 4px solid black;
       border-left: 4px solid black;
-      transition: height 100ms ease-in-out 100ms, width 200ms ease-in-out,
+      transition: height 100ms ease-in-out 100ms, width 200ms ease-in-out,1
         left 200ms ease-in-out;
       animation: revertColor 0.2s ease-in-out forwards;
     }
@@ -217,4 +217,87 @@ header {
 
 .no-scroll {
   overflow: hidden;
+}
+
+@media (max-width: 1850px) {
+  header {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+
+  .menu-button {
+    right: 60px;
+  }
+
+  .menu-info {
+    p {
+      font-size: 80px;
+      &::after {
+        width: 32px;
+        height: 41px;
+      }
+      &:hover::after {
+        left: 190px;
+      }
+    }
+    span {
+      width: 480px;
+    }
+  }
+}
+
+@media (max-width: 1300px) {
+  .menu-info {
+    p {
+      margin-bottom: 50px;
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  header {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .menu-button {
+    right: 40px;
+  }
+
+  .menu-info {
+    p {
+      margin-bottom: 50px;
+      &::after {
+        width: 28px;
+        height: 35px;
+      }
+      font-size: 70px;
+      &:hover::after {
+        left: 130px;
+      }
+    }
+    span {
+      width: 420px;
+    }
+  }
+}
+
+@media (max-width: 650px) {
+
+  .menu-info {
+    p {
+      margin-bottom: 50px;
+      font-size: 40px;
+      &::after {
+        width: 23px;
+        height: 33px;
+      }
+      &:hover::after {
+        left: 50px;
+      }
+    }
+    span {
+      width: 257px;
+    }
+  }
 }

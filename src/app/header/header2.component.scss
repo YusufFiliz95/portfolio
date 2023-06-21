@@ -128,13 +128,15 @@
   }
 }
 
-.email, .hover-icon-container {
+.email,
+.hover-icon-container {
   position: relative;
   z-index: 1;
 }
 
-.email::before, .hover-icon-container::before {
-  content: '';
+.email::before,
+.hover-icon-container::before {
+  content: "";
   position: absolute;
   z-index: -1;
   top: 0;
@@ -195,7 +197,111 @@
   height: 20px;
   display: flex;
   justify-content: flex-start;
-  p{
+  p {
     margin: 0;
+  }
+}
+
+@media (max-width: 1920px) {
+  .menu-socials {
+    clip-path: polygon(0% 0%, 100% 40%, 100% 100%, 0% 100%);
+  }
+}
+
+@media (max-width: 1850px) {
+  .text-email {
+    justify-content: flex-start;
+    margin-bottom: 60px;
+    .text {
+      font-size: 50px;
+    }
+    .email {
+      font-size: 19px;
+    }
+  }
+}
+
+@media (max-width: 1440px) {
+  .menu-socials {
+    clip-path: polygon(0% 0%, 100% 33%, 100% 100%, 0% 100%);
+  }
+}
+
+@media (max-width: 1280px) {
+  .menu-socials {
+    clip-path: polygon(0% 0%, 100% 26%, 100% 100%, 0% 100%);
+  }
+}
+
+@media (max-width: 630px) {
+  .menu-socials {
+    flex-direction: column;
+    clip-path: polygon(0% 0%, 100% 26%, 100% 100%, 0% 100%);
+    padding-left: 20px;
+  }
+  .text-email {
+    width: 100%;
+    justify-content: flex-start;
+    align-items: flex-end;
+    margin-bottom: -30px;
+    margin-top: 10px;
+    .text {
+      font-size: 35px;
+    }
+    .email {
+      font-size: 16px;
+    }
+  }
+
+  .social-network {
+    height: 70px;
+    justify-content: flex-end;
+    margin-right: 20px;
+    margin-bottom: 100px;
+  }
+
+  .icon {
+    margin-left: 15px !important;
+    margin-right: 15px !important;
+  }
+
+  .icon img {
+    width: 25px !important;
+    height: 25px !important;
+  }
+
+  .icon:hover {
+    padding-bottom: 0px !important;
+    cursor: pointer;
+  }
+
+  .icon-container {
+    margin-left: 18px !important;
+    .default-icon,
+    .hover-icon {
+      width: 20px !important;
+    }
+  }
+
+  .popup-text {
+    p {
+      font-size: 14px;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .text-email {
+    width: 100%;
+    justify-content: flex-start;
+    align-items: flex-end;
+    margin-bottom: -40px;
+    margin-top: 10px;
+    .text {
+      font-size: 30px;
+    }
+    .email {
+      font-size: 14px;
+    }
   }
 }

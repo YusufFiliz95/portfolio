@@ -23,6 +23,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-left: 60px;
+  margin-right: 60px;
 
   .text-padding {
     padding-right: 32px;
@@ -150,4 +152,77 @@
 .arrow-down.animate {
   opacity: 1;
   transform: translateX(0);
+}
+
+@media (max-width: 1230px) {
+  .about-me-headline-text-img {
+    div {
+      h1 {
+        font-size: 60px;
+      }
+      p {
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1090px) {
+  .about-me-headline-text-img {
+    div {
+      h1 {
+        font-size: 50px;
+      }
+      p {
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .about-me-headline-text-img {
+    flex-direction: column;
+    div {
+      div {
+        margin-top: 0px;
+      }
+      h1 {
+        font-size: 50px;
+        text-align: center;
+      }
+      p {
+        font-size: 18px;
+      }
+    }
+  }
+
+  .text-padding {
+    padding-right: 0px !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    button {
+      display: none;
+    }
+  }
+
+  .img-with-border {
+    margin-top: 0px !important;
+    img {
+      margin-left: 0px !important;
+      margin-bottom: 0px !important;
+    }
+  }
+
+  .about-me-img {
+    width: fit-content;
+    display: block;
+    height: fit-content;
+  }
+
+  .img-border {
+    display: none !important;
+  }
 }

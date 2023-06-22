@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChildren, AfterViewInit, QueryList } from '@angular/core';
+import { Component, ElementRef, HostListener, ViewChildren, AfterViewInit, QueryList } from '@angular/core';
 
 @Component({
   selector: 'app-about-me',
@@ -11,9 +11,11 @@ export class AboutMeComponent implements AfterViewInit {
   ngAfterViewInit() {
     this.animatedElements.changes.subscribe(() => {
       this.observeElements();
+/*       this.scaleElements(); */
     });
 
     this.observeElements();
+/*     this.scaleElements(); */
   }
 
   observeElements() {

@@ -1,5 +1,5 @@
 .my-skills-section {
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -15,8 +15,11 @@
   }
 
   .my-skills-container {
-    width: 1239px;
-    height: 592px;
+    margin-top: 32px;
+    margin-left: 32px;
+    margin-right: 32px;
+    max-width: 1239px;
+    min-height: 592px;
     border: 4px solid #000000;
     span {
       display: flex;
@@ -134,4 +137,16 @@
 .animate {
   transform: scale(1) !important;
   transition: transform 1s ease-in-out;
+}
+
+
+@media (max-width: 660px) {
+  .my-skills-container {
+    span {
+      p {
+        font-size: 30px !important;
+        top: -23px !important;
+      }
+    }
+  }
 }

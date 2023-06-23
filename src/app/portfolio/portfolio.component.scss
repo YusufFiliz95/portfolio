@@ -62,6 +62,7 @@
       .project-image {
         width: 570px;
         height: 380px;
+        object-fit: cover;
         filter: grayscale(100%) blur(0.5px);
         transition: filter 150ms;
       }
@@ -106,7 +107,7 @@
         .project-arrow-reverse {
           position: absolute;
           left: -40px;
-          transform: rotate(135deg); // Soll 270 sein
+          transform: rotate(135deg);
           opacity: 0;
           transition: opacity 150ms ease-in-out 150ms,
             transform 150ms ease-in-out 150ms;
@@ -393,21 +394,60 @@
   display: none;
 }
 
-
 @media (max-width: 1315px) {
-  .project {
-    flex-direction: column;
-    align-items: center;
-    height: fit-content !important;
-    margin-bottom: 0px !important;
-    .project-description-container {
-      width: 100% !important;
+
+  .arrow-down {
+    width: 100% !important;
+    img {
+      margin-right: 32px !important;
     }
-    .project-info {
-      width: 100%;
-      height: 87%;
-      opacity: 1 !important;
-      transform: none !important;
+  }
+
+  .projects-section {
+    width: 571px;
+    .project {
+      flex-direction: column;
+      align-items: center;
+      height: fit-content !important;
+      margin-bottom: 130px !important;
+      .project-description-container {
+        width: 100% !important;
+      }
+      .project-info {
+        width: 100%;
+        height: 87%;
+        opacity: 1 !important;
+        transform: none !important;
+        .project-name {
+          padding-left: 0px !important;
+          margin-bottom: 20px;
+        }
+
+        .project-tech-stack {
+          padding-left: 0px !important;
+          margin-top: 0;
+          margin-bottom: 12px;
+        }
+
+        .project-description {
+          padding-left: 0px !important;
+        }
+
+        .project-buttons {
+          padding-left: 0px !important;
+        }
+      }
+
+      .project-image-container {
+        .project-image {
+          filter: none !important;
+          object-fit: cover !important;
+          height: max-content;
+        }
+        .project-border {
+          display: none !important;
+        }
+      }
     }
   }
 
@@ -421,9 +461,80 @@
 
   .project-number-column {
     display: block;
+    width: 100%;
+    p {
+      margin: 0;
+      font-family: "Overpass";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 48px;
+    }
   }
 
   .project-number {
     display: none;
+  }
+}
+
+@media (max-width: 740px) {
+  .project-image-container {
+    width: fit-content !important;
+
+    .project-image {
+      width: 100% !important;
+    }
+  }
+
+  .portfolio-headline {
+    margin-bottom: 80px;
+    h1 {
+      font-size: 50px;
+    }
+
+    p {
+      font-size: 16px;
+    }
+  }
+}
+
+
+@media (max-width: 600px) {
+  .projects-section {
+    width: 90%;
+  }
+
+  .arrow-down {
+    width: 100% !important;
+    img {
+      margin-right: 32px !important;
+      width: 120px;
+      height: 120px;
+    }
+  }
+}
+
+
+@media (max-width: 538px) {
+  .project-info {
+    .project-name {
+      padding-left: 0px !important;
+      margin-bottom: 20px;
+      font-size: 28px !important;
+    }
+
+    .project-tech-stack {
+      padding-left: 0px !important;
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-size: 16px !important;
+    }
+
+    .project-description {
+      padding-left: 0px !important;
+    }
+
+    .project-buttons {
+      padding-left: 0px !important;
+    }
   }
 }

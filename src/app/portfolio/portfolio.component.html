@@ -5,32 +5,64 @@
   </div>
   <div class="projects-section">
     <div *ngFor="let project of projects; index as i" class="project d-none no-click" #project>
-      <div class="project-image-container" *ngIf="i % 2 == 0">
-        <img [src]="project.image" alt="" class="project-image" draggable="false">
-        <div class="project-border">
-          <img class="project-arrow" src="assets/img/project-arrow.svg" alt="" draggable="false">
-        </div>
-      </div>
-      <div class="project-description-container">
-        <span class="project-number" [ngClass]="{'project-number-reverse': i % 2 != 0}">
+      <!--FOR BIG SCREEN-->
+      <ng-container *ngIf="!isSmallScreen; else smallScreen">
+        <span class="project-number-column" [ngClass]="{'project-number-reverse': i % 2 != 0}">
           <p>0{{i + 1}}/0{{projects.length}}</p>
         </span>
-        <div class="project-info" [ngClass]="{'project-info-reverse': i % 2 != 0}">
-          <h1 class="project-name" [ngClass]="{'project-name-reverse': i % 2 != 0}">{{project.title}}</h1>
-          <p class="project-tech-stack" [ngClass]="{'project-tech-stack-reverse': i % 2 != 0}">{{project.techStack.join(' | ')}}</p>
-          <p class="project-description" [ngClass]="{'project-description-reverse': i % 2 != 0}">{{project.description}}</p>
-          <div class="project-buttons" [ngClass]="{'project-buttons-reverse': i % 2 != 0}">
-            <button (click)="navigateTo(project.githubLink)">Github</button>
-            <button (click)="navigateTo(project.liveTestLink)">Live</button>
+        <div class="project-image-container" *ngIf="i % 2 == 0">
+          <img [src]="project.image" alt="" class="project-image" draggable="false">
+          <div class="project-border">
+            <img class="project-arrow" src="assets/img/project-arrow.svg" alt="" draggable="false">
           </div>
         </div>
-      </div>
-      <div class="project-image-container" *ngIf="i % 2 != 0">
-        <img [src]="project.image" alt="" class="project-image" draggable="false">
-        <div class="project-border-reverse">
-          <img class="project-arrow-reverse" src="assets/img/project-arrow.svg" alt="" draggable="false">
+        <div class="project-description-container">
+          <span class="project-number" [ngClass]="{'project-number-reverse': i % 2 != 0}">
+            <p>0{{i + 1}}/0{{projects.length}}</p>
+          </span>
+          <div class="project-info" [ngClass]="{'project-info-reverse': i % 2 != 0}">
+            <h1 class="project-name" [ngClass]="{'project-name-reverse': i % 2 != 0}">{{project.title}}</h1>
+            <p class="project-tech-stack" [ngClass]="{'project-tech-stack-reverse': i % 2 != 0}">{{project.techStack.join(' | ')}}</p>
+            <p class="project-description" [ngClass]="{'project-description-reverse': i % 2 != 0}">{{project.description}}</p>
+            <div class="project-buttons" [ngClass]="{'project-buttons-reverse': i % 2 != 0}">
+              <button (click)="navigateTo(project.githubLink)">Github</button>
+              <button (click)="navigateTo(project.liveTestLink)">Live</button>
+            </div>
+          </div>
         </div>
-      </div>
+        <div class="project-image-container" *ngIf="i % 2 != 0">
+          <img [src]="project.image" alt="" class="project-image" draggable="false">
+          <div class="project-border-reverse">
+            <img class="project-arrow-reverse" src="assets/img/project-arrow.svg" alt="" draggable="false">
+          </div>
+        </div>
+      </ng-container>
+      <!--FOR SMALL SCREEN-->
+      <ng-template #smallScreen>
+        <span class="project-number-column">
+          <p>0{{i + 1}}/0{{projects.length}}</p>
+        </span>
+        <div class="project-image-container">
+          <img [src]="project.image" alt="" class="project-image" draggable="false">
+          <div class="project-border">
+            <img class="project-arrow" src="assets/img/project-arrow.svg" alt="" draggable="false">
+          </div>
+        </div>
+        <div class="project-description-container">
+          <span class="project-number">
+            <p>0{{i + 1}}/0{{projects.length}}</p>
+          </span>
+          <div class="project-info">
+            <h1 class="project-name">{{project.title}}</h1>
+            <p class="project-tech-stack">{{project.techStack.join(' | ')}}</p>
+            <p class="project-description">{{project.description}}</p>
+            <div class="project-buttons">
+              <button (click)="navigateTo(project.githubLink)">Github</button>
+              <button (click)="navigateTo(project.liveTestLink)">Live</button>
+            </div>
+          </div>
+        </div>
+      </ng-template>
     </div>
   </div>
   <div class="arrow-down" (click)="scrollToElement('contact')">

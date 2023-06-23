@@ -1,4 +1,5 @@
-import { Component, ViewChildren, ElementRef, QueryList, ViewChild, AfterViewInit } from '@angular/core';
+import { HostListener, ViewChildren, ElementRef, QueryList, ViewChild, Component } from '@angular/core';
+
 import { Project } from './project.model';
 
 @Component({
@@ -10,6 +11,17 @@ import { Project } from './project.model';
 export class PortfolioComponent {
   @ViewChildren('project', { read: ElementRef }) projectContainers!: QueryList<ElementRef>;
   @ViewChild('arrowDown', { read: ElementRef }) arrowDown!: ElementRef;
+
+  isSmallScreen = false;
+
+  ngOnInit() {
+    this.onResize(window.innerWidth);
+  }
+
+  @HostListener('window:resize', ['$event.target.innerWidth'])
+  onResize(width: number) {
+    this.isSmallScreen = width <= 1315;
+  }
 
   projects: Project[] = [
     new Project(

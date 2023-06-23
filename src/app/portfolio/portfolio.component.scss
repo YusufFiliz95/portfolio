@@ -388,3 +388,42 @@
   transition: pointer-events 0.5s;
   transition-delay: 0.5s;
 }
+
+.project-number-column {
+  display: none;
+}
+
+
+@media (max-width: 1315px) {
+  .project {
+    flex-direction: column;
+    align-items: center;
+    height: fit-content !important;
+    margin-bottom: 0px !important;
+    .project-description-container {
+      width: 100% !important;
+    }
+    .project-info {
+      width: 100%;
+      height: 87%;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+
+  .animate-from-left {
+    animation: none;
+  }
+
+  .animate-from-right {
+    animation: none;
+  }
+
+  .project-number-column {
+    display: block;
+  }
+
+  .project-number {
+    display: none;
+  }
+}

@@ -1,5 +1,4 @@
 .about-me-section {
-  min-height: 100vh;
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
@@ -12,6 +11,7 @@
 
 .about-me-headline-img {
   height: 80%;
+  padding-top: 250px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -205,9 +205,6 @@
           justify-content: center;
           margin-top: 16px;
         }
-      h1 {
-        margin-top: 100px;
-      }
     }
     .text-padding {
       padding-right: 0px;
@@ -216,6 +213,10 @@
         display: none !important;
       }
     }
+  }
+
+  .about-me-headline-img {
+    padding-top: 100px !important;
   }
 
   .about-me-img {
@@ -248,7 +249,6 @@
           margin-top: 16px;
         }
       h1 {
-        margin-top: 100px;
         font-size: 30px;
       }
       p {
@@ -264,11 +264,15 @@
     }
   }
 
+  .about-me-headline-img {
+    padding-top: 100px !important;
+  }
+
   .arrow-down {
     div {
       img {
         margin-top: 20px;
-        margin-right: 0px;
+        margin-right: 13px;
         width: 120px;
         height: 120px;
       }

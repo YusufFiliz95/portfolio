@@ -32,6 +32,9 @@
     font-weight: 400;
     font-size: 23px;
     margin: 0;
+    padding-left: 16px;
+    text-align: center;
+    padding-right: 16px;
   }
 }
 
@@ -502,19 +505,21 @@
   }
 }
 
-
-@media (max-width: 600px) {
-  .projects-section {
-    width: 90%;
-  }
-
+@media (max-width: 660px) {
   .arrow-down {
     width: 100% !important;
     img {
       margin-right: 32px !important;
+      margin-top: -80px;
       width: 120px;
       height: 120px;
     }
+  }
+}
+
+@media (max-width: 600px) {
+  .projects-section {
+    width: 90%;
   }
 }
 

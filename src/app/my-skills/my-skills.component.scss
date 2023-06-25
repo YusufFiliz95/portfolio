@@ -14,6 +14,9 @@
   }
 
   .my-skills-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     margin-top: 132px;
     margin-left: 32px;
     margin-right: 32px;
@@ -31,7 +34,7 @@
         font-family: "Syne";
         font-weight: 800;
         background-color: #fffcf3;
-        top: -56px;
+        top: -120px;
         padding-left: 20px;
         padding-right: 20px;
         -moz-user-select: none;
@@ -138,7 +141,7 @@
   transition: transform 1s ease-in-out;
 }
 
-@media (max-width: 1239px) {
+@media (max-width: 1247px) {
   .arrow-down {
     width: 100%;
   }

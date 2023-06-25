@@ -236,7 +236,19 @@
   .img-border {
     display: none !important;
   }
+}
 
+@media (max-width: 660px) {
+  .arrow-down {
+    div {
+      img {
+        margin-top: 20px;
+        margin-right: 32px;
+        width: 120px;
+        height: 120px;
+      }
+    }
+  }
 }
 
 @media (max-width: 561px) {
@@ -266,17 +278,6 @@
 
   .about-me-headline-img {
     padding-top: 100px !important;
-  }
-
-  .arrow-down {
-    div {
-      img {
-        margin-top: 20px;
-        margin-right: 13px;
-        width: 120px;
-        height: 120px;
-      }
-    }
   }
 }
 

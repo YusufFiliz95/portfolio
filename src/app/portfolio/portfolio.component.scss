@@ -42,7 +42,7 @@
   align-items: center;
   flex-direction: column;
   overflow-y: hidden;
-
+  overflow-x: hidden;
   .project {
     display: flex;
     justify-content: space-between;
@@ -401,6 +401,11 @@
     img {
       margin-right: 32px !important;
     }
+  }
+
+  .project-buttons {
+    display: flex;
+    justify-content: center;
   }
 
   .projects-section {

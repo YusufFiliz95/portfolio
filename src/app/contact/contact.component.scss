@@ -257,6 +257,12 @@
         color: #5988ff !important;
       }
 
+      button:disabled {
+        background-color: grey !important;
+        color: rgb(0, 0, 0) !important;
+        cursor: not-allowed !important;
+      }
+
       button {
         margin-top: -10px;
         width: 250px;

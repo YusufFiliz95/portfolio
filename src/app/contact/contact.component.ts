@@ -24,38 +24,57 @@ export class ContactComponent implements AfterViewInit {
   @ViewChild('emailField') emailField!: ElementRef;
   @ViewChild('messageField') messageField!: ElementRef;
   @ViewChild('sendButton') sendButton!: ElementRef;
+  isFormValid = false;
 
   constructor(private scrollService: ScrollService) {}
 
   async sendMail() {
-    console.log('Sending mail', this.myForm);
+    // Wenn das Formular nicht gültig ist, beenden Sie die Funktion
+    if (!this.isFormValid) {
+      console.log('Form is invalid. Not sending mail.');
+      return;
+    }
+
+    console.log('Sending mail', this.myForm.nativeElement);
+
     let nameField = this.nameField.nativeElement;
     let emailField = this.emailField.nativeElement;
     let messageField = this.messageField.nativeElement;
     let sendButton = this.sendButton.nativeElement;
+
+    // Deaktivieren Sie die Eingabefelder und den Button während des Sendens der E-Mail
     nameField.disabled = true;
     emailField.disabled = true;
     messageField.disabled = true;
     sendButton.disabled = true;
-    // Animation Anzeigen
+
+    // Animation anzeigen (sofern vorhanden)
+
+    // Formulardaten erstellen
     let fd = new FormData();
     fd.append('name', nameField.value);
     fd.append('email', emailField.value);
     fd.append('message', messageField.value);
 
-    await fetch(
-      'https://yusuffiliz.com@235.hosttech.eu/httpdocs/send_mail/send_mail.php',
-      {
+    // E-Mail senden
+    try {
+      await fetch('https://yusuffiliz.com/send_mail/send_mail.php', {
         method: 'POST',
         body: fd,
-      }
-    );
+      });
 
-    // Test anzeigen: Nachricht gesendet:
-    nameField.disabled = false;
-    emailField.disabled = false;
-    messageField.disabled = false;
-    sendButton.disabled = false;
+      // Anzeige: Nachricht gesendet
+      console.log('Mail sent successfully');
+
+    } catch (error) {
+      console.error('Error sending mail', error);
+    } finally {
+      // Aktivieren Sie die Eingabefelder und den Button, nachdem die E-Mail gesendet wurde
+      nameField.disabled = false;
+      emailField.disabled = false;
+      messageField.disabled = false;
+      sendButton.disabled = false;
+    }
   }
 
   switchToGerman() {
@@ -103,6 +122,11 @@ export class ContactComponent implements AfterViewInit {
     let labelElement = document.getElementById(labelElementId);
     let requiredTextElement = document.getElementById(requiredTextId);
     let imgElement = document.getElementById(inputElementId + 'Img');
+
+    this.isFormValid =
+      this.validationRules['name'].test(this.nameField.nativeElement.value) &&
+      this.validationRules['email'].test(this.emailField.nativeElement.value) &&
+      this.validationRules['text'].test(this.messageField.nativeElement.value);
 
     let elementToUpdate = isLabel ? labelElement : inputElement;
 

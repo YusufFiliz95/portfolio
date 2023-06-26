@@ -36,7 +36,7 @@
               (keyup)="updateFormFilledStatus($event, 'textArea', 'textLabel', 'form-filled', false, 'requiredMessageText', 'text'); updateFormFilledStatus($event, 'textArea', 'textLabel', 'form-filled-label', true, 'requiredMessageText', 'text');"></textarea>
             <p id="requiredMessageText" class="required-text hide">Please enter at least 20 characters.</p>
           </div>
-          <button class="send-btn" #sendButton [disabled]="!isFormValid">Send message</button>
+          <button class="send-btn" #sendButton>Send message</button>
         </form>
     </div>
     <div class="scroll-up">
@@ -74,6 +74,7 @@
     </div>
   </div>
 </div>
+
 <div class="legal-notice-container" [ngClass]="{ 'show': isLegalNoticeVisible$ | async }">
   <div class="close-legal-notice-container">
     <p id="pgerman" (click)="switchToGerman()" class="language-german chosen-language">DE</p>

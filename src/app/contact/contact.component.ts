@@ -29,11 +29,12 @@ export class ContactComponent implements AfterViewInit {
   constructor(private scrollService: ScrollService) {}
 
   async sendMail() {
-    // Wenn das Formular nicht gültig ist, beenden Sie die Funktion
     if (!this.isFormValid) {
       console.log('Form is invalid. Not sending mail.');
+      this.showValidationErrors();
       return;
     }
+
 
     console.log('Sending mail', this.myForm.nativeElement);
 
@@ -47,6 +48,7 @@ export class ContactComponent implements AfterViewInit {
     emailField.disabled = true;
     messageField.disabled = true;
     sendButton.disabled = true;
+    this.sendButton.nativeElement.disabled = true;
 
     // Animation anzeigen (sofern vorhanden)
 
@@ -74,6 +76,7 @@ export class ContactComponent implements AfterViewInit {
       emailField.disabled = false;
       messageField.disabled = false;
       sendButton.disabled = false;
+      this.sendButton.nativeElement.disabled = false;
     }
   }
 
@@ -149,6 +152,17 @@ export class ContactComponent implements AfterViewInit {
       elementToUpdate?.classList.remove(className);
       requiredTextElement?.classList.remove('hide');
       imgElement?.classList.add('hide');
+    }
+  }
+
+  showValidationErrors() {
+    // Liste der erforderlichen Textelemente
+    const requiredTextIds = ['requiredNameText', 'requiredEmailText', 'requiredMessageText'];
+
+    // Durchlaufe jeden ID und entferne die 'hide'-Klasse
+    for (const id of requiredTextIds) {
+      let requiredTextElement = document.getElementById(id);
+      requiredTextElement?.classList.remove('hide');
     }
   }
 

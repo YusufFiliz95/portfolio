@@ -29,6 +29,38 @@ export class ContactComponent implements AfterViewInit {
 
   constructor(private scrollService: ScrollService) {}
 
+  resetForm() {
+    // Input fields reset
+    this.nameField.nativeElement.value = '';
+    this.emailField.nativeElement.value = '';
+    this.messageField.nativeElement.value = '';
+
+    // Image elements
+    let nameImg = document.getElementById('nameInputImg');
+    let emailImg = document.getElementById('emailInputImg');
+    let messageImg = document.getElementById('textAreaImg');
+
+    // Making sure the images are hidden
+    nameImg?.classList.add('hide');
+    emailImg?.classList.add('hide');
+    messageImg?.classList.add('hide');
+
+    // Label elements
+    let nameLabel = document.getElementById('nameLabel');
+    let emailLabel = document.getElementById('emailLabel');
+    let textLabel = document.getElementById('textLabel');
+
+    // Removing 'form-filled-label' class
+    nameLabel?.classList.remove('form-filled-label');
+    emailLabel?.classList.remove('form-filled-label');
+    textLabel?.classList.remove('form-filled-label');
+
+    // Resetting form visual status
+    this.nameLabelDown();
+    this.emailLabelDown();
+    this.textLabelDown();
+}
+
   async sendMail() {
     if (!this.isFormValid) {
       console.log('Form is invalid. Not sending mail.');
@@ -65,14 +97,12 @@ export class ContactComponent implements AfterViewInit {
 
       this.isEmailSentPopupVisible = true;
 
-      // Werte der Eingabefelder auf leere Zeichenfolgen setzen
-      nameField.value = '';
-      emailField.value = '';
-      messageField.value = '';
-
       setTimeout(() => {
           this.isEmailSentPopupVisible = false;
       }, 3000);
+
+      // Resetting the form
+      this.resetForm();
 
     } catch (error) {
       console.error('Error sending mail', error);
@@ -139,7 +169,7 @@ export class ContactComponent implements AfterViewInit {
 
     let elementToUpdate = isLabel ? labelElement : inputElement;
 
-    // remove line breaks before validating
+
     let inputValueWithoutLineBreaks = inputElement.value.replace(/\n/g, '');
 
     if (inputElement.value === '') {
@@ -162,10 +192,10 @@ export class ContactComponent implements AfterViewInit {
   }
 
   showValidationErrors() {
-    // Liste der erforderlichen Textelemente
+
     const requiredTextIds = ['requiredNameText', 'requiredEmailText', 'requiredMessageText'];
 
-    // Durchlaufe jeden ID und entferne die 'hide'-Klasse
+
     for (const id of requiredTextIds) {
       let requiredTextElement = document.getElementById(id);
       requiredTextElement?.classList.remove('hide');
@@ -272,7 +302,7 @@ export class ContactComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    // Wenn sich die Liste der Elemente ändert (z. B. durch dynamische Änderungen), starten Sie die Beobachtung erneut
+
     this.animatedElements.changes.subscribe(() => {
       this.observeElements();
     });
@@ -282,22 +312,21 @@ export class ContactComponent implements AfterViewInit {
 
   observeElements() {
     const options = {
-      root: null, // Bezieht sich auf den Viewport
+      root: null,
       rootMargin: '0px',
-      threshold: 0.1, // Beginnt die Animation, wenn 10% des Elements im Viewport sind
+      threshold: 0.1,
     };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          // Fügen Sie die Animationsklasse hinzu, wenn das Element im Viewport ist
+
           entry.target.classList.add('slideInDown');
-          observer.unobserve(entry.target); // Sobald das Element sichtbar ist, beenden wir die Beobachtung
+          observer.unobserve(entry.target);
         }
       });
     }, options);
 
-    // Beginnen Sie die Beobachtung für jedes Element
     this.animatedElements.forEach((element) => {
       observer.observe(element.nativeElement);
     });

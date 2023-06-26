@@ -67,7 +67,6 @@ export class ContactComponent implements AfterViewInit {
    */
   async sendMail() {
     if (!this.isFormValid) {
-      console.log('Form is invalid. Not sending mail.');
       this.showValidationErrors();
       return;
     }

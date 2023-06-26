@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, ViewChildren, AfterViewInit, QueryList } from '@angular/core';
+import { Component, ElementRef, ViewChildren, AfterViewInit, QueryList } from '@angular/core';
 
 @Component({
   selector: 'app-about-me',
@@ -8,16 +8,20 @@ import { Component, ElementRef, HostListener, ViewChildren, AfterViewInit, Query
 export class AboutMeComponent implements AfterViewInit {
   @ViewChildren('animatedElement', { read: ElementRef }) animatedElements!: QueryList<ElementRef>;
 
+/**
+ * The function initializes the component by subscribing to changes in animated elements and observing
+ * those elements.
+ */
   ngAfterViewInit() {
     this.animatedElements.changes.subscribe(() => {
-      this.observeElements();
-/*       this.scaleElements(); */
     });
 
     this.observeElements();
-/*     this.scaleElements(); */
   }
 
+/**
+ * This function observes elements and adds a CSS class to them when they intersect with the viewport.
+ */
   observeElements() {
     const options = {
       root: null,
@@ -38,6 +42,11 @@ export class AboutMeComponent implements AfterViewInit {
     });
   }
 
+/**
+ * This function scrolls smoothly to a specified element on the page.
+ * @param {string} elementId - A string representing the ID of the HTML element that needs to be
+ * scrolled into view.
+ */
   scrollToElement(elementId: string): void {
     document.getElementById(elementId)?.scrollIntoView({ behavior: 'smooth' });
   }

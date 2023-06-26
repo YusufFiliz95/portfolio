@@ -114,6 +114,10 @@ export class MySkillsComponent {
     });
   }
 
+/**
+ * This function observes the intersection of an element and adds a CSS class to it with a delay when
+ * it becomes visible.
+ */
   observeArrowDownOnIntersect() {
     const options = {
       root: null,

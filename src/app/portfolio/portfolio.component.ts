@@ -65,7 +65,7 @@ property can be used in the template to conditionally display content based on s
       'A card-based party game involving drink-related rules for each card drawn.',
       'assets/img/Ring-Of-Fire.jpg',
       'https://github.com/YusufFiliz95/Game-ringgoffire',
-      'https://y-f-ringoffire.web.app/'
+      'https://yusuffiliz-ringoffire.com/'
     ),
     new Project(
       3,
@@ -136,10 +136,10 @@ property can be used in the template to conditionally display content based on s
     });
   }
 
-/**
- * This function observes the intersection of an element with the viewport and adds a CSS class to it
- * if it is intersecting.
- */
+  /**
+   * This function observes the intersection of an element with the viewport and adds a CSS class to it
+   * if it is intersecting.
+   */
   observeArrowDownOnIntersect(): void {
     const options = {
       root: null,

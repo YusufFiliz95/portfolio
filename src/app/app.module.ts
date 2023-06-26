@@ -9,6 +9,8 @@ import { MySkillsComponent } from './my-skills/my-skills.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { ContactComponent } from './contact/contact.component';
 import { ScrollService } from './scroll.service';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,12 @@ import { ScrollService } from './scroll.service';
     PortfolioComponent,
     ContactComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
   providers: [ScrollService],
   bootstrap: [AppComponent],
 })

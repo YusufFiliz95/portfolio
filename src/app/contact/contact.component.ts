@@ -1,6 +1,12 @@
-import { Component, AfterViewInit, ViewChildren, ElementRef, QueryList } from '@angular/core';
+import {
+  Component,
+  AfterViewInit,
+  ViewChildren,
+  ElementRef,
+  QueryList,
+  ViewChild,
+} from '@angular/core';
 import { ScrollService } from '../scroll.service';
-
 
 @Component({
   selector: 'app-contact',
@@ -11,9 +17,46 @@ export class ContactComponent implements AfterViewInit {
   isLegalNoticeVisible = false;
   isLegalNoticeVisible$ = this.scrollService.isLegalNoticeVisible$;
   currentLanguage = 'de';
-  @ViewChildren('animatedElement', { read: ElementRef }) animatedElements!: QueryList<ElementRef>;
+  @ViewChildren('animatedElement', { read: ElementRef })
+  animatedElements!: QueryList<ElementRef>;
+  @ViewChild('myForm') myForm!: ElementRef;
+  @ViewChild('nameField') nameField!: ElementRef;
+  @ViewChild('emailField') emailField!: ElementRef;
+  @ViewChild('messageField') messageField!: ElementRef;
+  @ViewChild('sendButton') sendButton!: ElementRef;
 
   constructor(private scrollService: ScrollService) {}
+
+  async sendMail() {
+    console.log('Sending mail', this.myForm);
+    let nameField = this.nameField.nativeElement;
+    let emailField = this.emailField.nativeElement;
+    let messageField = this.messageField.nativeElement;
+    let sendButton = this.sendButton.nativeElement;
+    nameField.disabled = true;
+    emailField.disabled = true;
+    messageField.disabled = true;
+    sendButton.disabled = true;
+    // Animation Anzeigen
+    let fd = new FormData();
+    fd.append('name', nameField.value);
+    fd.append('email', emailField.value);
+    fd.append('message', messageField.value);
+
+    await fetch(
+      'https://yusuffiliz.com@235.hosttech.eu/httpdocs/send_mail/send_mail.php',
+      {
+        method: 'POST',
+        body: fd,
+      }
+    );
+
+    // Test anzeigen: Nachricht gesendet:
+    nameField.disabled = false;
+    emailField.disabled = false;
+    messageField.disabled = false;
+    sendButton.disabled = false;
+  }
 
   switchToGerman() {
     document.getElementById('pgerman')?.classList.add('chosen-language');
@@ -42,7 +85,7 @@ export class ContactComponent implements AfterViewInit {
   validationRules = {
     name: new RegExp('^.{2,}$'),
     email: new RegExp('^\\S+@\\S+\\.\\S+$'),
-    text: new RegExp('^.{20,}$')
+    text: new RegExp('^.{20,}$'),
   };
 
   updateFormFilledStatus(
@@ -54,7 +97,9 @@ export class ContactComponent implements AfterViewInit {
     requiredTextId: string,
     validationType: string
   ) {
-    let inputElement = <HTMLInputElement>document.getElementById(inputElementId);
+    let inputElement = <HTMLInputElement>(
+      document.getElementById(inputElementId)
+    );
     let labelElement = document.getElementById(labelElementId);
     let requiredTextElement = document.getElementById(requiredTextId);
     let imgElement = document.getElementById(inputElementId + 'Img');
@@ -68,7 +113,11 @@ export class ContactComponent implements AfterViewInit {
       elementToUpdate?.classList.remove(className);
       requiredTextElement?.classList.add('hide');
       imgElement?.classList.add('hide');
-    } else if (this.validationRules[validationType as keyof typeof this.validationRules].test(inputValueWithoutLineBreaks)) {
+    } else if (
+      this.validationRules[
+        validationType as keyof typeof this.validationRules
+      ].test(inputValueWithoutLineBreaks)
+    ) {
       elementToUpdate?.classList.add(className);
       requiredTextElement?.classList.add('hide');
       imgElement?.classList.remove('hide');
@@ -78,7 +127,6 @@ export class ContactComponent implements AfterViewInit {
       imgElement?.classList.add('hide');
     }
   }
-
 
   onFocus(event: any) {
     let value = event.target.value;
@@ -192,11 +240,11 @@ export class ContactComponent implements AfterViewInit {
     const options = {
       root: null, // Bezieht sich auf den Viewport
       rootMargin: '0px',
-      threshold: 0.1 // Beginnt die Animation, wenn 10% des Elements im Viewport sind
+      threshold: 0.1, // Beginnt die Animation, wenn 10% des Elements im Viewport sind
     };
 
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
           // Fügen Sie die Animationsklasse hinzu, wenn das Element im Viewport ist
           entry.target.classList.add('slideInDown');
@@ -206,9 +254,8 @@ export class ContactComponent implements AfterViewInit {
     }, options);
 
     // Beginnen Sie die Beobachtung für jedes Element
-    this.animatedElements.forEach(element => {
+    this.animatedElements.forEach((element) => {
       observer.observe(element.nativeElement);
     });
   }
-
 }

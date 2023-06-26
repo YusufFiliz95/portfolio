@@ -29,38 +29,42 @@ export class ContactComponent implements AfterViewInit {
 
   constructor(private scrollService: ScrollService) {}
 
+/**
+ * The function resets a form by clearing input fields, hiding images, and removing labels.
+ */
   resetForm() {
-    // Input fields reset
     this.nameField.nativeElement.value = '';
     this.emailField.nativeElement.value = '';
     this.messageField.nativeElement.value = '';
 
-    // Image elements
     let nameImg = document.getElementById('nameInputImg');
     let emailImg = document.getElementById('emailInputImg');
     let messageImg = document.getElementById('textAreaImg');
 
-    // Making sure the images are hidden
     nameImg?.classList.add('hide');
     emailImg?.classList.add('hide');
     messageImg?.classList.add('hide');
 
-    // Label elements
     let nameLabel = document.getElementById('nameLabel');
     let emailLabel = document.getElementById('emailLabel');
     let textLabel = document.getElementById('textLabel');
 
-    // Removing 'form-filled-label' class
     nameLabel?.classList.remove('form-filled-label');
     emailLabel?.classList.remove('form-filled-label');
     textLabel?.classList.remove('form-filled-label');
 
-    // Resetting form visual status
     this.nameLabelDown();
     this.emailLabelDown();
     this.textLabelDown();
 }
 
+  /**
+   * This function sends an email using form data and displays a popup message if the email is sent
+   * successfully.
+   * @returns The function does not explicitly return anything, but it does have a return statement
+   * inside an if statement that is executed if the form is invalid. The return statement prevents the
+   * rest of the function from executing and exits the function.
+   */
   async sendMail() {
     if (!this.isFormValid) {
       console.log('Form is invalid. Not sending mail.');
@@ -73,22 +77,17 @@ export class ContactComponent implements AfterViewInit {
     let messageField = this.messageField.nativeElement;
     let sendButton = this.sendButton.nativeElement;
 
-    // Deaktivieren Sie die Eingabefelder und den Button während des Sendens der E-Mail
     nameField.disabled = true;
     emailField.disabled = true;
     messageField.disabled = true;
     sendButton.disabled = true;
     this.sendButton.nativeElement.disabled = true;
 
-    // Animation anzeigen (sofern vorhanden)
-
-    // Formulardaten erstellen
     let fd = new FormData();
     fd.append('name', nameField.value);
     fd.append('email', emailField.value);
     fd.append('message', messageField.value);
 
-    // E-Mail senden
     try {
       await fetch('https://yusuffiliz.com/send_mail/send_mail.php', {
           method: 'POST',
@@ -100,14 +99,11 @@ export class ContactComponent implements AfterViewInit {
       setTimeout(() => {
           this.isEmailSentPopupVisible = false;
       }, 3000);
-
-      // Resetting the form
       this.resetForm();
 
     } catch (error) {
       console.error('Error sending mail', error);
     } finally {
-      // Aktivieren Sie die Eingabefelder und den Button, nachdem die E-Mail gesendet wurde
       nameField.disabled = false;
       emailField.disabled = false;
       messageField.disabled = false;
@@ -116,36 +112,76 @@ export class ContactComponent implements AfterViewInit {
     }
   }
 
+/**
+ * The function switches the language to German and updates the currentLanguage variable.
+ */
   switchToGerman() {
     document.getElementById('pgerman')?.classList.add('chosen-language');
     document.getElementById('penglish')?.classList.remove('chosen-language');
     this.currentLanguage = 'de';
   }
 
+/**
+ * The function switches the language to English and updates the currentLanguage variable.
+ */
   switchToEnglish() {
     document.getElementById('penglish')?.classList.add('chosen-language');
     document.getElementById('pgerman')?.classList.remove('chosen-language');
     this.currentLanguage = 'en';
   }
 
+/**
+ * This function calls the `hideLegalNotice()` method of the `scrollService` object.
+ */
   hideLegalNotice() {
     this.scrollService.hideLegalNotice();
   }
 
+/**
+ * The function calls the `showLegalNotice()` method of the `scrollService` object.
+ */
   showLegalNotice() {
     this.scrollService.showLegalNotice();
   }
 
+/**
+ * The function opens a new browser window with the specified URL.
+ * @param {string} url - The `url` parameter is a string that represents the URL (Uniform Resource
+ * Locator) of the webpage that needs to be opened in a new browser window/tab.
+ */
   navigateTo(url: string) {
     window.open(url, '_blank');
   }
 
+/* The `validationRules` object is defining regular expressions that are used to validate the input
+fields in the contact form. The `name` regular expression requires at least 2 characters, the
+`email` regular expression requires a valid email format, and the `text` regular expression requires
+at least 20 characters. These regular expressions are used in the `updateFormFilledStatus()`
+function to determine if the input fields are valid or not. */
   validationRules = {
     name: new RegExp('^.{2,}$'),
     email: new RegExp('^\\S+@\\S+\\.\\S+$'),
     text: new RegExp('^.{20,}$'),
   };
 
+  /**
+   * This function updates the status of a form element based on whether it is filled and whether it
+   * passes a validation rule.
+   * @param {any} event - An event object that triggered the function (e.g. a keypress or a click
+   * event).
+   * @param {string} inputElementId - The ID of the HTML input element that triggered the event.
+   * @param {string} labelElementId - The ID of the HTML label element associated with the input
+   * element.
+   * @param {string} className - A string representing the CSS class name to be added or removed from
+   * the input or label element based on its filled status.
+   * @param {boolean} [isLabel=false] - A boolean flag indicating whether the element to update is a
+   * label element or an input element. If true, the label element will be updated, otherwise the input
+   * element will be updated.
+   * @param {string} requiredTextId - The ID of the HTML element that displays the required text
+   * message for the input field.
+   * @param {string} validationType - The type of validation rule to apply to the input element, which
+   * is a string value that corresponds to a key in the `validationRules` object.
+   */
   updateFormFilledStatus(
     event: any,
     inputElementId: string,
@@ -191,17 +227,24 @@ export class ContactComponent implements AfterViewInit {
     }
   }
 
+  /**
+   * This function shows validation error messages for required fields on a form.
+   */
   showValidationErrors() {
-
     const requiredTextIds = ['requiredNameText', 'requiredEmailText', 'requiredMessageText'];
-
-
     for (const id of requiredTextIds) {
       let requiredTextElement = document.getElementById(id);
       requiredTextElement?.classList.remove('hide');
     }
   }
 
+/**
+ * This function removes leading whitespace from the input value if it starts with a tab or space
+ * character.
+ * @param {any} event - The `event` parameter is an object that represents the event that triggered the
+ * `onFocus` function. It contains information about the event, such as the target element and any data
+ * associated with the event.
+ */
   onFocus(event: any) {
     let value = event.target.value;
     if (value.startsWith('\t') || value.startsWith(' ')) {
@@ -209,6 +252,9 @@ export class ContactComponent implements AfterViewInit {
     }
   }
 
+/**
+ * The function adds classes to the name label and input elements to indicate focus and filled status.
+ */
   nameLabelUp() {
     let nameInput = <HTMLInputElement>document.getElementById('nameInput');
     let nameLabel = document.getElementById('nameLabel');
@@ -221,6 +267,10 @@ export class ContactComponent implements AfterViewInit {
     }
   }
 
+/**
+ * The function removes the focus from the name input field and removes the "form-filled" class if the
+ * input is empty, otherwise it adds the "form-filled" class.
+ */
   nameLabelDown() {
     let nameInput = <HTMLInputElement>document.getElementById('nameInput');
     let nameLabel = document.getElementById('nameLabel');
@@ -235,6 +285,10 @@ export class ContactComponent implements AfterViewInit {
     }
   }
 
+/**
+ * This function adds a CSS class to the email label and input field if the email input field is
+ * focused or filled.
+ */
   emailLabelUp() {
     let emailInput = <HTMLInputElement>document.getElementById('emailInput');
     let emailLabel = document.getElementById('emailLabel');
@@ -246,6 +300,10 @@ export class ContactComponent implements AfterViewInit {
     }
   }
 
+/**
+ * This function removes the focus class from an email label and removes the form-filled class from an
+ * email input if the input value is empty.
+ */
   emailLabelDown() {
     let emailInput = <HTMLInputElement>document.getElementById('emailInput');
     let emailLabel = document.getElementById('emailLabel');
@@ -260,6 +318,9 @@ export class ContactComponent implements AfterViewInit {
     }
   }
 
+/**
+ * This function adds a class to a text label and a textarea element if the textarea has a value.
+ */
   textLabelUp() {
     let textarea = <HTMLTextAreaElement>document.getElementById('textArea');
     let textLabel = document.getElementById('textLabel');
@@ -271,6 +332,10 @@ export class ContactComponent implements AfterViewInit {
     }
   }
 
+/**
+ * This function removes the focus from a text label and removes a class from a textarea if the
+ * textarea is empty, otherwise it adds a class to the textarea.
+ */
   textLabelDown() {
     let textarea = <HTMLTextAreaElement>document.getElementById('textArea');
     let textLabel = document.getElementById('textLabel');
@@ -285,10 +350,23 @@ export class ContactComponent implements AfterViewInit {
     }
   }
 
+/**
+ * This function scrolls smoothly to a specified element on the page.
+ * @param {string} elementId - A string representing the ID of the HTML element that needs to be
+ * scrolled into view.
+ */
   scrollToElement(elementId: string): void {
     document.getElementById(elementId)?.scrollIntoView({ behavior: 'smooth' });
   }
 
+/**
+ * This function scrolls the page smoothly to a specified target element when triggered by a mouse
+ * click event.
+ * @param {MouseEvent} event - A MouseEvent object that represents an event triggered by a mouse
+ * action, such as a click or hover.
+ * @param {string} targetId - The targetId parameter is a string that represents the ID of the HTML
+ * element that we want to scroll to.
+ */
   scrollTo(event: MouseEvent, targetId: string): void {
     event.preventDefault();
     const targetElement = document.getElementById(targetId);
@@ -297,10 +375,16 @@ export class ContactComponent implements AfterViewInit {
     }
   }
 
+/**
+ * This function opens the default email client with the recipient email address pre-filled.
+ */
   public sendEmail() {
     window.location.href = 'mailto:y.filiz.ch@gmail.com';
   }
 
+/**
+ * The function sets up a subscription to changes in animated elements and observes those elements.
+ */
   ngAfterViewInit() {
 
     this.animatedElements.changes.subscribe(() => {
@@ -310,6 +394,10 @@ export class ContactComponent implements AfterViewInit {
     this.observeElements();
   }
 
+  /**
+   * This function observes elements and adds a CSS class to them when they intersect with the
+   * viewport.
+   */
   observeElements() {
     const options = {
       root: null,

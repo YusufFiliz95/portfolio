@@ -25,6 +25,7 @@ export class ContactComponent implements AfterViewInit {
   @ViewChild('messageField') messageField!: ElementRef;
   @ViewChild('sendButton') sendButton!: ElementRef;
   isFormValid = false;
+  isEmailSentPopupVisible = false;
 
   constructor(private scrollService: ScrollService) {}
 
@@ -34,9 +35,6 @@ export class ContactComponent implements AfterViewInit {
       this.showValidationErrors();
       return;
     }
-
-
-    console.log('Sending mail', this.myForm.nativeElement);
 
     let nameField = this.nameField.nativeElement;
     let emailField = this.emailField.nativeElement;
@@ -61,12 +59,20 @@ export class ContactComponent implements AfterViewInit {
     // E-Mail senden
     try {
       await fetch('https://yusuffiliz.com/send_mail/send_mail.php', {
-        method: 'POST',
-        body: fd,
+          method: 'POST',
+          body: fd,
       });
 
-      // Anzeige: Nachricht gesendet
-      console.log('Mail sent successfully');
+      this.isEmailSentPopupVisible = true;
+
+      // Werte der Eingabefelder auf leere Zeichenfolgen setzen
+      nameField.value = '';
+      emailField.value = '';
+      messageField.value = '';
+
+      setTimeout(() => {
+          this.isEmailSentPopupVisible = false;
+      }, 3000);
 
     } catch (error) {
       console.error('Error sending mail', error);

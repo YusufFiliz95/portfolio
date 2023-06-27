@@ -377,12 +377,14 @@
 .scroll-up {
   height: 5%;
   width: 100%;
+  position: relative;
   display: flex;
   justify-content: flex-end;
   align-items: center;
 
   .scroll-up-container {
-    margin-top: 90px;
+    position: absolute;
+    top: -100px;
     height: fit-content;
     margin-right: 69px;
     display: flex;
@@ -593,6 +595,26 @@
       margin-right: 30px;
     }
   }
+
+  .logo {
+    margin-left: 40px !important;
+  }
+
+  .icons {
+    margin-right: 40px !important;
+  }
+
+  .name-date {
+    margin-left: 40px !important;
+  }
+
+  .legal-notice-text {
+    margin-right: 40px !important;
+  }
+
+  .scroll-up-container {
+    margin-right: 28px !important;
+  }
 }
 
 @media (max-width: 800px) {
@@ -680,10 +702,6 @@
     }
   }
 
-  .scroll-up-container {
-    margin-top: -60px !important;
-    margin-bottom: 20px !important;
-  }
 }
 
 @media (max-width: 500px) {
@@ -695,6 +713,7 @@
   }
 
   .contact-form {
+    margin-bottom: 15px !important;
     button {
       width: 140px !important;
       height: 40px !important;
@@ -733,8 +752,8 @@
   }
 
   .scroll-up-container {
-    margin-top: -10px !important;
-    margin-bottom: 20px !important;
+    top: -50px !important;
+    right: -3px;
     img {
       width: 50px !important;
       height: 50px !important;

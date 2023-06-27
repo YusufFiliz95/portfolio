@@ -32,7 +32,9 @@
             <label id="textLabel" class="textarea-label">Your message</label>
             <textarea name="message" id="textArea" class="contact-message" #messageField
               (focus)="textLabelUp();"
-              (focusout)="textLabelDown(); updateFormFilledStatus($event, 'textArea', 'textLabel', 'form-filled', false, 'requiredMessageText', 'text'); updateFormFilledStatus($event, 'textArea', 'textLabel', 'form-filled-label', true, 'requiredMessageText', 'text');"
+(focusout)="textLabelDown();
+            updateFormFilledStatus($event, 'textArea', 'textLabel', 'form-filled', false, 'requiredMessageText', 'text');
+            updateFormFilledStatus($event, 'textArea', 'textLabel', 'form-filled-label', true, 'requiredMessageText', 'text');"
               (keyup)="updateFormFilledStatus($event, 'textArea', 'textLabel', 'form-filled', false, 'requiredMessageText', 'text'); updateFormFilledStatus($event, 'textArea', 'textLabel', 'form-filled-label', true, 'requiredMessageText', 'text');"></textarea>
             <p id="requiredMessageText" class="required-text hide">Please enter at least 20 characters.</p>
           </div>

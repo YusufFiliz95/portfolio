@@ -59,11 +59,10 @@ export class ContactComponent implements AfterViewInit {
 }
 
   /**
-   * This function sends an email using form data and displays a popup message if the email is sent
-   * successfully.
-   * @returns The function does not explicitly return anything, but it does have a return statement
-   * inside an if statement that is executed if the form is invalid. The return statement prevents the
-   * rest of the function from executing and exits the function.
+   * This function sends an email using form data and disables form fields and the send button while
+   * the email is being sent.
+   * @returns The function does not explicitly return anything, but it may return control flow to the
+   * calling function if the form is not valid and the validation errors are shown.
    */
   async sendMail() {
     if (!this.isFormValid) {
@@ -98,6 +97,9 @@ export class ContactComponent implements AfterViewInit {
       setTimeout(() => {
           this.isEmailSentPopupVisible = false;
       }, 3000);
+
+      this.isFormValid = false;
+
       this.resetForm();
 
     } catch (error) {
@@ -108,6 +110,43 @@ export class ContactComponent implements AfterViewInit {
       messageField.disabled = false;
       sendButton.disabled = false;
       this.sendButton.nativeElement.disabled = false;
+    }
+  }
+
+  /**
+   * This function shows validation errors for name, email, and text inputs in a form.
+   */
+  showValidationErrors() {
+    type InputKeys = 'name' | 'email' | 'text';
+    const formInputs: Record<InputKeys, { inputId: string, requiredTextId: string }> = {
+      name: {
+        inputId: 'nameInput',
+        requiredTextId: 'requiredNameText',
+      },
+      email: {
+        inputId: 'emailInput',
+        requiredTextId: 'requiredEmailText',
+      },
+      text: {
+        inputId: 'textArea',
+        requiredTextId: 'requiredMessageText',
+      },
+    };
+
+    for (const key in formInputs) {
+      if (Object.prototype.hasOwnProperty.call(formInputs, key)) {
+        const inputId = formInputs[key as InputKeys].inputId;
+        const requiredTextId = formInputs[key as InputKeys].requiredTextId;
+
+        let inputElement = <HTMLInputElement>document.getElementById(inputId) || <HTMLTextAreaElement>document.getElementById(inputId);
+        let requiredTextElement = document.getElementById(requiredTextId);
+
+        if (!this.validationRules[key as InputKeys]?.test(inputElement.value)) {
+          requiredTextElement?.classList.remove('hide');
+        } else {
+          requiredTextElement?.classList.add('hide');
+        }
+      }
     }
   }
 
@@ -223,17 +262,6 @@ function to determine if the input fields are valid or not. */
       elementToUpdate?.classList.remove(className);
       requiredTextElement?.classList.remove('hide');
       imgElement?.classList.add('hide');
-    }
-  }
-
-  /**
-   * This function shows validation error messages for required fields on a form.
-   */
-  showValidationErrors() {
-    const requiredTextIds = ['requiredNameText', 'requiredEmailText', 'requiredMessageText'];
-    for (const id of requiredTextIds) {
-      let requiredTextElement = document.getElementById(id);
-      requiredTextElement?.classList.remove('hide');
     }
   }
 

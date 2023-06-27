@@ -166,3 +166,39 @@
     }
   }
 }
+
+@media (max-width: 520px) {
+  .skills-icon-container {
+    .icon {
+      margin: 30px !important;
+    }
+  }
+
+  .icon-img {
+    width: 50px !important;
+    height: 50px !important;
+  }
+
+  .icons-hover {
+    width: 50%;
+  }
+}
+
+@media (max-width: 400px) {
+  .skills-icon-container {
+    .icon {
+      margin: 20px !important;
+      margin-right: 10px !important;
+      margin-left: 10px !important;
+    }
+  }
+
+  .icon-img {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .icons-hover {
+    width: 40%;
+  }
+}

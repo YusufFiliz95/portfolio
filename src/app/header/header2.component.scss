@@ -290,6 +290,17 @@
   }
 }
 
+@media (max-width: 630px) {
+  .menu-socials {
+    height: 45%;
+    justify-content: flex-start;
+  }
+
+  .text-email {
+    height: 150px;
+  }
+}
+
 @media (max-width: 400px) {
   .text-email {
     width: 100%;

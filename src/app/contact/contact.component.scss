@@ -114,6 +114,7 @@
       }
 
       input {
+        -webkit-appearance: none;
         position: relative;
         line-height: 10px;
         width: 599px;
@@ -121,6 +122,7 @@
         background: transparent;
         border: 0;
         box-shadow: 0 2px 0 0 #fffcf3;
+        -webkit-box-shadow: 0 2px 0 0 #fffcf3;
         padding-right: 49px;
         padding-left: 19px;
         padding-top: 17px;
@@ -135,13 +137,17 @@
         z-index: 1;
         cursor: pointer;
         &:hover {
+          -webkit-appearance: none;
           box-shadow: 0 0 0 4px #fffcf3;
+          -webkit-box-shadow: 0 0 0 4px #fffcf3;
         }
       }
 
       input:focus {
         outline: none;
         box-shadow: 0 0 0 2px #fffcf3 !important;
+        -webkit-box-shadow: 0 0 0 2px #fffcf3;
+        -webkit-appearance: none;
         cursor: text;
       }
 
@@ -194,7 +200,9 @@
         height: 202px;
         background: transparent;
         border: 0;
+        -webkit-appearance: none;
         box-shadow: 0 2px 0 0 #fffcf3;
+        -webkit-box-shadow: 0 2px 0 0 #fffcf3;
         padding-right: 30px;
         padding-left: 20px;
         padding-top: 25px;
@@ -211,7 +219,9 @@
         position: relative;
         z-index: 1;
         &:hover {
+          -webkit-appearance: none;
           box-shadow: 0 0 0 4px #fffcf3;
+          -webkit-box-shadow: 0 0 0 4px #fffcf3;
         }
       }
 
@@ -241,15 +251,21 @@
 
       .contact-message:focus {
         outline: none;
+        -webkit-appearance: none;
         box-shadow: 0 0 0 2px #fffcf3;
+        -webkit-box-shadow: 0 0 0 2px #fffcf3;
         cursor: text;
       }
 
       .form-filled {
+        -webkit-appearance: none;
         transition: 100ms ease-in-out;
         box-shadow: 0 0 0 2px #fffcf3;
+        -webkit-box-shadow: 0 0 0 2px #fffcf3;
         &:hover {
+          -webkit-appearance: none;
           box-shadow: 0 0 0 4px #fffcf3;
+          -webkit-box-shadow: 0 0 0 4px #fffcf3;
         }
       }
 
@@ -710,7 +726,6 @@
       width: 25px !important;
     }
   }
-
 }
 
 @media (max-width: 500px) {
@@ -770,7 +785,6 @@
   }
 }
 
-
 .email-sent-popup {
   position: fixed;
   z-index: 111111;
@@ -791,63 +805,64 @@
   visibility: visible;
 }
 
-  .wrapper {
-    border-radius: 24px;
-    height: 130px;
-    width: 280px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #eee;
-    margin-bottom: 32px;
+.wrapper {
+  border-radius: 24px;
+  height: 130px;
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #eee;
+  margin-bottom: 32px;
+}
+.checkmark__circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: #000000;
+  fill: none;
+  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+.checkmark {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: block;
+  stroke-width: 2;
+  stroke: #fff;
+  stroke-miterlimit: 10;
+  -webkit-appearance: none;
+  box-shadow: inset 0px 0px 0px #000000;
+  -webkit-box-shadow: inset 0px 0px 0px #000000;
+  animation: fill 0.4s ease-in-out 0.4s forwards,
+    scale 0.3s ease-in-out 0.9s both;
+}
+.checkmark__check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
   }
-  .checkmark__circle {
-    stroke-dasharray: 166;
-    stroke-dashoffset: 166;
-    stroke-width: 2;
-    stroke-miterlimit: 10;
-    stroke: #000000;
-    fill: none;
-    animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+@keyframes scale {
+  0%,
+  100% {
+    transform: none;
   }
-  .checkmark {
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    display: block;
-    stroke-width: 2;
-    stroke: #fff;
-    stroke-miterlimit: 10;
-    box-shadow: inset 0px 0px 0px #000000;
-    animation: fill 0.4s ease-in-out 0.4s forwards,
-      scale 0.3s ease-in-out 0.9s both;
+  50% {
+    transform: scale3d(1.1, 1.1, 1);
   }
-  .checkmark__check {
-    transform-origin: 50% 50%;
-    stroke-dasharray: 48;
-    stroke-dashoffset: 48;
-    animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+@keyframes fill {
+  100% {
+    -webkit-appearance: none;
+    box-shadow: inset 0px 0px 0px 30px #000000;
+    -webkit-box-shadow: inset 0px 0px 0px 30px #000000;
   }
-  @keyframes stroke {
-    100% {
-      stroke-dashoffset: 0;
-    }
-  }
-  @keyframes scale {
-    0%,
-    100% {
-      transform: none;
-    }
-    50% {
-      transform: scale3d(1.1, 1.1, 1);
-    }
-  }
-  @keyframes fill {
-    100% {
-      box-shadow: inset 0px 0px 0px 30px #000000;
-    }
-  }
-
-
-
+}

@@ -136,6 +136,7 @@
         transition: 100ms ease-in-out;
         z-index: 1;
         cursor: pointer;
+        -webkit-border-radius: 0;
         &:hover {
           -webkit-appearance: none;
           box-shadow: 0 0 0 4px #fffcf3;
@@ -203,6 +204,7 @@
         -webkit-appearance: none;
         box-shadow: 0 2px 0 0 #fffcf3;
         -webkit-box-shadow: 0 2px 0 0 #fffcf3;
+        -webkit-border-radius: 0;
         padding-right: 30px;
         padding-left: 20px;
         padding-top: 25px;
@@ -484,12 +486,12 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  -webkit-position: sticky;
   position: sticky;
   height: 80px;
   width: 100%;
   background-color: #fffcf3;
   border-bottom: 1px solid black;
-  right: 0;
   top: 0;
   color: black;
   -moz-user-select: none;

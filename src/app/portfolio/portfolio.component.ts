@@ -67,15 +67,6 @@ property can be used in the template to conditionally display content based on s
       'https://github.com/YusufFiliz95/Game-ringgoffire',
       'https://yusuffiliz-ringoffire.com/'
     ),
-    new Project(
-      3,
-      'Pokédex',
-      ['JavaScript', 'HTML', 'CSS', 'API'],
-      'a digital encyclopedia application developed with a REST API, providing detailed data on Pokémon characters.',
-      'assets/img/Pokedex.png',
-      'https://github.com/YusufFiliz95/Project-Pokedex',
-      'https://yusuf-filiz.developerakademie.net/Pokedex/index.html'
-    ),
   ];
 
   /**

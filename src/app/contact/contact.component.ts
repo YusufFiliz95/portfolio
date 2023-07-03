@@ -29,9 +29,9 @@ export class ContactComponent implements AfterViewInit {
 
   constructor(private scrollService: ScrollService) {}
 
-/**
- * The function resets a form by clearing input fields, hiding images, and removing labels.
- */
+  /**
+   * The function resets a form by clearing input fields, hiding images, and removing labels.
+   */
   resetForm() {
     this.nameField.nativeElement.value = '';
     this.emailField.nativeElement.value = '';
@@ -56,7 +56,7 @@ export class ContactComponent implements AfterViewInit {
     this.nameLabelDown();
     this.emailLabelDown();
     this.textLabelDown();
-}
+  }
 
   /**
    * This function sends an email using form data and disables form fields and the send button while
@@ -88,20 +88,19 @@ export class ContactComponent implements AfterViewInit {
 
     try {
       await fetch('https://yusuffiliz.com/send_mail/send_mail.php', {
-          method: 'POST',
-          body: fd,
+        method: 'POST',
+        body: fd,
       });
 
       this.isEmailSentPopupVisible = true;
 
       setTimeout(() => {
-          this.isEmailSentPopupVisible = false;
+        this.isEmailSentPopupVisible = false;
       }, 3000);
 
       this.isFormValid = false;
 
       this.resetForm();
-
     } catch (error) {
       console.error('Error sending mail', error);
     } finally {
@@ -118,7 +117,10 @@ export class ContactComponent implements AfterViewInit {
    */
   showValidationErrors() {
     type InputKeys = 'name' | 'email' | 'text';
-    const formInputs: Record<InputKeys, { inputId: string, requiredTextId: string }> = {
+    const formInputs: Record<
+      InputKeys,
+      { inputId: string; requiredTextId: string }
+    > = {
       name: {
         inputId: 'nameInput',
         requiredTextId: 'requiredNameText',
@@ -138,7 +140,9 @@ export class ContactComponent implements AfterViewInit {
         const inputId = formInputs[key as InputKeys].inputId;
         const requiredTextId = formInputs[key as InputKeys].requiredTextId;
 
-        let inputElement = <HTMLInputElement>document.getElementById(inputId) || <HTMLTextAreaElement>document.getElementById(inputId);
+        let inputElement =
+          <HTMLInputElement>document.getElementById(inputId) ||
+          <HTMLTextAreaElement>document.getElementById(inputId);
         let requiredTextElement = document.getElementById(requiredTextId);
 
         if (!this.validationRules[key as InputKeys]?.test(inputElement.value)) {
@@ -150,48 +154,48 @@ export class ContactComponent implements AfterViewInit {
     }
   }
 
-/**
- * The function switches the language to German and updates the currentLanguage variable.
- */
+  /**
+   * The function switches the language to German and updates the currentLanguage variable.
+   */
   switchToGerman() {
     document.getElementById('pgerman')?.classList.add('chosen-language');
     document.getElementById('penglish')?.classList.remove('chosen-language');
     this.currentLanguage = 'de';
   }
 
-/**
- * The function switches the language to English and updates the currentLanguage variable.
- */
+  /**
+   * The function switches the language to English and updates the currentLanguage variable.
+   */
   switchToEnglish() {
     document.getElementById('penglish')?.classList.add('chosen-language');
     document.getElementById('pgerman')?.classList.remove('chosen-language');
     this.currentLanguage = 'en';
   }
 
-/**
- * This function calls the `hideLegalNotice()` method of the `scrollService` object.
- */
+  /**
+   * This function calls the `hideLegalNotice()` method of the `scrollService` object.
+   */
   hideLegalNotice() {
     this.scrollService.hideLegalNotice();
   }
 
-/**
- * The function calls the `showLegalNotice()` method of the `scrollService` object.
- */
+  /**
+   * The function calls the `showLegalNotice()` method of the `scrollService` object.
+   */
   showLegalNotice() {
     this.scrollService.showLegalNotice();
   }
 
-/**
- * The function opens a new browser window with the specified URL.
- * @param {string} url - The `url` parameter is a string that represents the URL (Uniform Resource
- * Locator) of the webpage that needs to be opened in a new browser window/tab.
- */
+  /**
+   * The function opens a new browser window with the specified URL.
+   * @param {string} url - The `url` parameter is a string that represents the URL (Uniform Resource
+   * Locator) of the webpage that needs to be opened in a new browser window/tab.
+   */
   navigateTo(url: string) {
     window.open(url, '_blank');
   }
 
-/* The `validationRules` object is defining regular expressions that are used to validate the input
+  /* The `validationRules` object is defining regular expressions that are used to validate the input
 fields in the contact form. The `name` regular expression requires at least 2 characters, the
 `email` regular expression requires a valid email format, and the `text` regular expression requires
 at least 20 characters. These regular expressions are used in the `updateFormFilledStatus()`
@@ -243,7 +247,6 @@ function to determine if the input fields are valid or not. */
 
     let elementToUpdate = isLabel ? labelElement : inputElement;
 
-
     let inputValueWithoutLineBreaks = inputElement.value.replace(/\n/g, '');
 
     if (inputElement.value === '') {
@@ -265,13 +268,13 @@ function to determine if the input fields are valid or not. */
     }
   }
 
-/**
- * This function removes leading whitespace from the input value if it starts with a tab or space
- * character.
- * @param {any} event - The `event` parameter is an object that represents the event that triggered the
- * `onFocus` function. It contains information about the event, such as the target element and any data
- * associated with the event.
- */
+  /**
+   * This function removes leading whitespace from the input value if it starts with a tab or space
+   * character.
+   * @param {any} event - The `event` parameter is an object that represents the event that triggered the
+   * `onFocus` function. It contains information about the event, such as the target element and any data
+   * associated with the event.
+   */
   onFocus(event: any) {
     let value = event.target.value;
     if (value.startsWith('\t') || value.startsWith(' ')) {
@@ -279,9 +282,9 @@ function to determine if the input fields are valid or not. */
     }
   }
 
-/**
- * The function adds classes to the name label and input elements to indicate focus and filled status.
- */
+  /**
+   * The function adds classes to the name label and input elements to indicate focus and filled status.
+   */
   nameLabelUp() {
     let nameInput = <HTMLInputElement>document.getElementById('nameInput');
     let nameLabel = document.getElementById('nameLabel');
@@ -294,10 +297,10 @@ function to determine if the input fields are valid or not. */
     }
   }
 
-/**
- * The function removes the focus from the name input field and removes the "form-filled" class if the
- * input is empty, otherwise it adds the "form-filled" class.
- */
+  /**
+   * The function removes the focus from the name input field and removes the "form-filled" class if the
+   * input is empty, otherwise it adds the "form-filled" class.
+   */
   nameLabelDown() {
     let nameInput = <HTMLInputElement>document.getElementById('nameInput');
     let nameLabel = document.getElementById('nameLabel');
@@ -312,10 +315,10 @@ function to determine if the input fields are valid or not. */
     }
   }
 
-/**
- * This function adds a CSS class to the email label and input field if the email input field is
- * focused or filled.
- */
+  /**
+   * This function adds a CSS class to the email label and input field if the email input field is
+   * focused or filled.
+   */
   emailLabelUp() {
     let emailInput = <HTMLInputElement>document.getElementById('emailInput');
     let emailLabel = document.getElementById('emailLabel');
@@ -327,10 +330,10 @@ function to determine if the input fields are valid or not. */
     }
   }
 
-/**
- * This function removes the focus class from an email label and removes the form-filled class from an
- * email input if the input value is empty.
- */
+  /**
+   * This function removes the focus class from an email label and removes the form-filled class from an
+   * email input if the input value is empty.
+   */
   emailLabelDown() {
     let emailInput = <HTMLInputElement>document.getElementById('emailInput');
     let emailLabel = document.getElementById('emailLabel');
@@ -345,9 +348,9 @@ function to determine if the input fields are valid or not. */
     }
   }
 
-/**
- * This function adds a class to a text label and a textarea element if the textarea has a value.
- */
+  /**
+   * This function adds a class to a text label and a textarea element if the textarea has a value.
+   */
   textLabelUp() {
     let textarea = <HTMLTextAreaElement>document.getElementById('textArea');
     let textLabel = document.getElementById('textLabel');
@@ -359,10 +362,10 @@ function to determine if the input fields are valid or not. */
     }
   }
 
-/**
- * This function removes the focus from a text label and removes a class from a textarea if the
- * textarea is empty, otherwise it adds a class to the textarea.
- */
+  /**
+   * This function removes the focus from a text label and removes a class from a textarea if the
+   * textarea is empty, otherwise it adds a class to the textarea.
+   */
   textLabelDown() {
     let textarea = <HTMLTextAreaElement>document.getElementById('textArea');
     let textLabel = document.getElementById('textLabel');
@@ -377,23 +380,23 @@ function to determine if the input fields are valid or not. */
     }
   }
 
-/**
- * This function scrolls smoothly to a specified element on the page.
- * @param {string} elementId - A string representing the ID of the HTML element that needs to be
- * scrolled into view.
- */
+  /**
+   * This function scrolls smoothly to a specified element on the page.
+   * @param {string} elementId - A string representing the ID of the HTML element that needs to be
+   * scrolled into view.
+   */
   scrollToElement(elementId: string): void {
     document.getElementById(elementId)?.scrollIntoView({ behavior: 'smooth' });
   }
 
-/**
- * This function scrolls the page smoothly to a specified target element when triggered by a mouse
- * click event.
- * @param {MouseEvent} event - A MouseEvent object that represents an event triggered by a mouse
- * action, such as a click or hover.
- * @param {string} targetId - The targetId parameter is a string that represents the ID of the HTML
- * element that we want to scroll to.
- */
+  /**
+   * This function scrolls the page smoothly to a specified target element when triggered by a mouse
+   * click event.
+   * @param {MouseEvent} event - A MouseEvent object that represents an event triggered by a mouse
+   * action, such as a click or hover.
+   * @param {string} targetId - The targetId parameter is a string that represents the ID of the HTML
+   * element that we want to scroll to.
+   */
   scrollTo(event: MouseEvent, targetId: string): void {
     event.preventDefault();
     const targetElement = document.getElementById(targetId);
@@ -402,18 +405,17 @@ function to determine if the input fields are valid or not. */
     }
   }
 
-/**
- * This function opens the default email client with the recipient email address pre-filled.
- */
+  /**
+   * This function opens the default email client with the recipient email address pre-filled.
+   */
   public sendEmail() {
-    window.location.href = 'mailto:y.filiz.ch@gmail.com';
+    window.location.href = 'mailto:contact.yusuffiliz@gmail.com';
   }
 
-/**
- * The function sets up a subscription to changes in animated elements and observes those elements.
- */
+  /**
+   * The function sets up a subscription to changes in animated elements and observes those elements.
+   */
   ngAfterViewInit() {
-
     this.animatedElements.changes.subscribe(() => {
       this.observeElements();
     });
@@ -435,7 +437,6 @@ function to determine if the input fields are valid or not. */
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-
           entry.target.classList.add('slideInDown');
           observer.unobserve(entry.target);
         }

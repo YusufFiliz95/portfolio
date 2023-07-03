@@ -65,7 +65,7 @@ export class HeaderComponent {
  */
   copyEmail() {
     if (this.canClick) {
-      navigator.clipboard.writeText('y.filiz.ch@gmail.com');
+      navigator.clipboard.writeText('contact.yusuffiliz@gmail.com');
       this.showPopup = true;
       this.canClick = false;
 
@@ -92,6 +92,6 @@ export class HeaderComponent {
  * This function opens the default email client with the recipient email address pre-filled.
  */
   public sendEmail() {
-    window.location.href = 'mailto:y.filiz.ch@gmail.com';
+    window.location.href = 'mailto:contact.yusuffiliz@gmail.com';
   }
 }

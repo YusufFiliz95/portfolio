@@ -62,13 +62,14 @@
   align-items: flex-end;
   width: 50%;
   padding-left: 30px;
-  margin-bottom: 100px;
+  margin-bottom: 117px;
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
   p {
     transition: ease-in-out 100ms;
+    font-size: 14px;
     cursor: pointer;
     transform: rotate(-90deg);
     margin: 0;

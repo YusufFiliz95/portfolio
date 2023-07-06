@@ -147,6 +147,24 @@
   }
 }
 
+@media (max-width: 1179px) {
+  .my-skills-container {
+    p {
+      top: -53px !important;
+  }}
+}
+
+@media (max-width: 770px) {
+  .my-skills-container {
+    span {
+      p {
+        font-size: 60px !important;
+        top: -43px !important;
+      }
+    }
+  }
+}
+
 @media (max-width: 660px) {
   .my-skills-container {
     span {

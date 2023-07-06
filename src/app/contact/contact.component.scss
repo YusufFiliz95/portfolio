@@ -654,12 +654,14 @@
   }
 
   .contact-form {
+    gap: 30px !important;
     input {
       width: 280px !important;
     }
 
     textarea {
       width: 296px !important;
+      margin-bottom: -20px !important;
     }
 
     button {
@@ -697,6 +699,7 @@
 
 @media (max-width: 640px) {
   .contact-form {
+    gap: 25px !important;
     button {
       width: 140px !important;
       height: 40px !important;
@@ -740,6 +743,7 @@
 
   .contact-form {
     margin-bottom: 15px !important;
+    gap: 10px !important;
     button {
       width: 140px !important;
       height: 40px !important;
@@ -758,6 +762,7 @@
     textarea {
       width: 266px !important;
       height: 140px !important;
+      margin-bottom: 0px !important;
     }
   }
   .logo {

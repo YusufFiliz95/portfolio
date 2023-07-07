@@ -73,6 +73,7 @@
         display: flex;
         flex-direction: column;
         img {
+          z-index: 2;
           width: 30px;
           position: absolute;
           right: 10px;
@@ -167,6 +168,7 @@
       .textarea-container {
         position: relative;
         img {
+          z-index: 2;
           width: 30px;
           position: absolute;
           right: 10px;
@@ -741,9 +743,24 @@
     }
   }
 
+  .contact-form-text {
+    margin-bottom: 32px !important;
+  }
+
   .contact-form {
     margin-bottom: 15px !important;
-    gap: 10px !important;
+    gap: 18px !important;
+
+    .required-text-input {
+      font-size: 13px !important;
+      margin-top: 6px !important;
+    }
+
+    .required-text {
+      font-size: 13px !important;
+      margin-top: -8px !important;
+    }
+
     button {
       width: 140px !important;
       height: 40px !important;
@@ -759,10 +776,26 @@
       width: 250px !important;
     }
 
+    .form-input-container {
+      img {
+        width: 20px !important;
+        right: 5px !important;
+        top: 5px !important;
+      }
+    }
+
+    .textarea-container {
+      img {
+        width: 20px !important;
+        right: 5px !important;
+        top: 5px !important;
+      }
+    }
+
     textarea {
       width: 266px !important;
-      height: 140px !important;
-      margin-bottom: 0px !important;
+      height: 100px !important;
+      margin-bottom: 10px !important;
     }
   }
   .logo {

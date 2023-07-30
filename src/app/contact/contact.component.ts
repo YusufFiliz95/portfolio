@@ -201,9 +201,9 @@ fields in the contact form. The `name` regular expression requires at least 2 ch
 at least 20 characters. These regular expressions are used in the `updateFormFilledStatus()`
 function to determine if the input fields are valid or not. */
   validationRules = {
-    name: new RegExp('^.{2,}$'),
+    name: new RegExp('^.{2,}$', 's'),
     email: new RegExp('^\\S+@\\S+\\.\\S+$'),
-    text: new RegExp('^.{20,}$'),
+    text: new RegExp('^.{20,}$', 's'),
   };
 
   /**
@@ -247,7 +247,7 @@ function to determine if the input fields are valid or not. */
 
     let elementToUpdate = isLabel ? labelElement : inputElement;
 
-    let inputValueWithoutLineBreaks = inputElement.value.replace(/\n/g, '');
+    let inputValue = inputElement.value;
 
     if (inputElement.value === '') {
       elementToUpdate?.classList.remove(className);
@@ -256,7 +256,7 @@ function to determine if the input fields are valid or not. */
     } else if (
       this.validationRules[
         validationType as keyof typeof this.validationRules
-      ].test(inputValueWithoutLineBreaks)
+      ].test(inputValue)
     ) {
       elementToUpdate?.classList.add(className);
       requiredTextElement?.classList.add('hide');

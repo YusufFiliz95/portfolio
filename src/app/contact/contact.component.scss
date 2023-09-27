@@ -608,6 +608,17 @@
 }
 
 @media (max-width: 1000px) {
+
+  .language-english {
+    margin-left: -10px !important;
+    margin-right: -10px !important;
+  }
+
+  .language-german {
+    margin-left: -10px !important;
+    margin-right: -10px !important;
+  }
+
   .legal-notice-container {
     position: fixed;
     overflow: auto;
@@ -619,6 +630,12 @@
     transform: translateY(100%);
     font-family: "Overpass";
     transition: transform 400ms ease-out;
+
+    li {
+      margin-left: 10px;
+      margin-right: 0px;
+    }
+
     p {
       margin-left: 20px;
       margin-right: 20px;
@@ -766,6 +783,31 @@
       font-size: 35px !important;
       padding-left: 10px !important;
     }
+  }
+
+  .legal-notice-title {
+    h1 {
+      font-size: 20px;
+    }
+  }
+
+  .close-ln-btn {
+    margin-right: 5px !important;
+    margin-left: 15px !important;
+  }
+
+  .language-english {
+    font-size: 12px !important;
+    margin-left: -15px !important;
+    padding: 3px !important;
+    border-radius: 3px !important;
+  }
+
+  .language-german {
+    font-size: 12px !important;
+    margin-right: -15px !important;
+    padding: 3px !important;
+    border-radius: 3px !important;
   }
 
   .contact-form-text {

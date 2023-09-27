@@ -85,11 +85,18 @@
 </div>
 
 <div class="legal-notice-container" [ngClass]="{ 'show': isLegalNoticeVisible$ | async }">
-  <div class="close-legal-notice-container">
-    <p id="pgerman" (click)="switchToGerman()" class="language-german chosen-language">DE</p>
-    <p>|</p>
-    <p id="penglish" (click)="switchToEnglish()" class="language-english">EN</p>
-    <img src="assets/img/close.svg" alt="" (click)="hideLegalNotice()">
+  <div class="legal-notice-header">
+    <div class="legal-notice-title">
+      <h1 id="legalNoticeTitle">Rechtlicher Hinweis</h1>
+    </div>
+    <div class="legal-notice-menu">
+      <p id="pgerman" (click)="switchToGerman()" class="language-german chosen-language">DE</p>
+      <p>|</p>
+      <p id="penglish" (click)="switchToEnglish()" class="language-english">EN</p>
+      <div class="close-ln-btn">
+        <img src="assets/img/close.svg" alt="" (click)="hideLegalNotice()">
+      </div>
+    </div>
   </div>
   <div id="germanText" *ngIf="currentLanguage == 'de'" class="imprint-german">
     <h1 class="imprint">Impressum</h1>

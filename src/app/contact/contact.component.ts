@@ -154,21 +154,24 @@ export class ContactComponent implements AfterViewInit {
     }
   }
 
-  /**
-   * The function switches the language to German and updates the currentLanguage variable.
-   */
-  switchToGerman() {
+/**
+ * The function `switchToGerman` changes the language on a webpage to German and updates the relevant
+ * elements.
+ */  switchToGerman() {
     document.getElementById('pgerman')?.classList.add('chosen-language');
     document.getElementById('penglish')?.classList.remove('chosen-language');
+    document.getElementById('legalNoticeTitle')!.innerText = 'Rechtlicher Hinweis';
     this.currentLanguage = 'de';
   }
 
-  /**
-   * The function switches the language to English and updates the currentLanguage variable.
-   */
+
+/**
+ * The function `switchToEnglish` changes the language to English and updates the UI accordingly.
+ */
   switchToEnglish() {
     document.getElementById('penglish')?.classList.add('chosen-language');
     document.getElementById('pgerman')?.classList.remove('chosen-language');
+    document.getElementById('legalNoticeTitle')!.innerText = 'Legal Notice';
     this.currentLanguage = 'en';
   }
 

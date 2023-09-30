@@ -115,6 +115,7 @@
       }
 
       input {
+        -webkit-appearance: none;
         appearance: none;
         position: relative;
         line-height: 10px;
@@ -122,6 +123,7 @@
         height: 30px;
         background: transparent;
         border: 0;
+        -webkit-box-shadow: 0 2px 0 0 #fffcf3;
         box-shadow: 0 2px 0 0 #fffcf3;
         padding-right: 49px;
         padding-left: 19px;
@@ -136,10 +138,13 @@
         transition: 100ms ease-in-out;
         z-index: 1;
         cursor: pointer;
+        -webkit-border-radius: 0;
         border-radius: 0;
         &:hover {
           appearance: none;
+          -webkit-appearance: none;
           box-shadow: 0 0 0 4px #fffcf3;
+          -webkit-box-shadow: 0 0 0 4px #fffcf3;
         }
       }
 
@@ -147,6 +152,8 @@
         outline: none;
         box-shadow: 0 0 0 2px #fffcf3 !important;
         box-shadow: 0 0 0 2px #fffcf3;
+        -webkit-box-shadow: 0 0 0 2px #fffcf3;
+        -webkit-appearance: none;
         appearance: none;
         cursor: text;
       }
@@ -201,8 +208,11 @@
         height: 202px;
         background: transparent;
         border: 0;
+        -webkit-appearance: none;
         appearance: none;
         box-shadow: 0 2px 0 0 #fffcf3;
+        -webkit-box-shadow: 0 2px 0 0 #fffcf3;
+        -webkit-border-radius: 0;
         border-radius: 0;
         padding-right: 30px;
         padding-left: 20px;
@@ -220,7 +230,10 @@
         position: relative;
         z-index: 1;
         &:hover {
+          -webkit-appearance: none;
+          appearance: none;
           box-shadow: 0 0 0 4px #fffcf3;
+          -webkit-box-shadow: 0 0 0 4px #fffcf3;
         }
       }
 
@@ -249,17 +262,22 @@
       }
 
       .contact-message:focus {
-        outline: none;
+        -webkit-appearance: none;
         appearance: none;
+        outline: none;
+        -webkit-box-shadow: 0 0 0 2px #fffcf3;
         box-shadow: 0 0 0 2px #fffcf3;
         cursor: text;
       }
 
       .form-filled {
+        -webkit-appearance: none;
         appearance: none;
         transition: 100ms ease-in-out;
+        -webkit-box-shadow: 0 0 0 2px #fffcf3;
         box-shadow: 0 0 0 2px #fffcf3;
         &:hover {
+          -webkit-appearance: none;
           appearance: none;
           box-shadow: 0 0 0 4px #fffcf3;
         }
@@ -477,14 +495,17 @@
 }
 
 .legal-notice-header {
+  z-index: 1000;
   height: 70px;
   display: flex;
   justify-content: space-between;
+  -webkit-position: sticky;
   position: sticky;
   background-color: #fffcf3;
   border-bottom: 1px solid black;
   top: 0;
   color: black;
+  -webkit-user-select: none;
   user-select: none;
 
   .legal-notice-title {
@@ -931,6 +952,7 @@
   stroke: #fff;
   stroke-miterlimit: 10;
   -webkit-appearance: none;
+  appearance: none;
   box-shadow: inset 0px 0px 0px #000000;
   -webkit-box-shadow: inset 0px 0px 0px #000000;
   animation: fill 0.4s ease-in-out 0.4s forwards,

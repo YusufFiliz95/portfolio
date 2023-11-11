@@ -435,7 +435,6 @@
 
 .legal-notice-container {
   position: fixed;
-  overflow: auto;
   z-index: 9;
   bottom: 0;
   width: 100%;
@@ -628,8 +627,6 @@
   }
 
   .legal-notice-container {
-    position: fixed;
-    overflow: auto;
     z-index: 9;
     bottom: 0;
     width: 100%;
@@ -991,4 +988,15 @@ input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   transition: background-color 5000s ease-in-out 0s;
+}
+
+.legal-notice-scroll {
+  height: 92vh;
+  overflow: auto;
+}
+
+@media (max-width: 500px) {
+  .legal-notice-scroll {
+    padding-top: 1px;
+  }
 }

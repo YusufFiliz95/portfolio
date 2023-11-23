@@ -64,53 +64,45 @@ export class ContactComponent implements AfterViewInit {
    * @returns The function does not explicitly return anything, but it may return control flow to the
    * calling function if the form is not valid and the validation errors are shown.
    */
-  async sendMail() {
+  async sendMail(event: Event) {
+    event.preventDefault(); // Verhindert das Standardverhalten des Formulars
+
     if (!this.isFormValid) {
       this.showValidationErrors();
       return;
     }
 
-    let nameField = this.nameField.nativeElement;
-    let emailField = this.emailField.nativeElement;
-    let messageField = this.messageField.nativeElement;
     let sendButton = this.sendButton.nativeElement;
-
-    nameField.disabled = true;
-    emailField.disabled = true;
-    messageField.disabled = true;
     sendButton.disabled = true;
-    this.sendButton.nativeElement.disabled = true;
 
-    let fd = new FormData();
-    fd.append('name', nameField.value);
-    fd.append('email', emailField.value);
-    fd.append('message', messageField.value);
+    // Erstellen eines FormData-Objekts aus dem Formular
+    const data = new FormData(event.target as HTMLFormElement);
 
     try {
-      await fetch('https://yusuffiliz.com/send_mail/send_mail.php', {
-        method: 'POST',
-        body: fd,
+      // Senden des Formulars an Formspree
+      await fetch("https://formspree.io/f/xzblklqe", {
+        method: "POST",
+        body: data,
+        headers: {
+          'Accept': 'application/json'
+        }
       });
 
+      // Anzeigen eines Popups oder einer Nachricht, dass die E-Mail gesendet wurde
       this.isEmailSentPopupVisible = true;
-
       setTimeout(() => {
         this.isEmailSentPopupVisible = false;
       }, 3000);
 
-      this.isFormValid = false;
-
-      this.resetForm();
     } catch (error) {
-      console.error('Error sending mail', error);
+      console.error(error);
+      // Fehlerbehandlung, z. B. Anzeigen einer Fehlermeldung
     } finally {
-      nameField.disabled = false;
-      emailField.disabled = false;
-      messageField.disabled = false;
+      this.resetForm();
       sendButton.disabled = false;
-      this.sendButton.nativeElement.disabled = false;
     }
   }
+
 
   /**
    * This function shows validation errors for name, email, and text inputs in a form.
@@ -154,20 +146,20 @@ export class ContactComponent implements AfterViewInit {
     }
   }
 
-/**
- * The function `switchToGerman` changes the language on a webpage to German and updates the relevant
- * elements.
- */  switchToGerman() {
+  /**
+   * The function `switchToGerman` changes the language on a webpage to German and updates the relevant
+   * elements.
+   */ switchToGerman() {
     document.getElementById('pgerman')?.classList.add('chosen-language');
     document.getElementById('penglish')?.classList.remove('chosen-language');
-    document.getElementById('legalNoticeTitle')!.innerText = 'Rechtlicher Hinweis';
+    document.getElementById('legalNoticeTitle')!.innerText =
+      'Rechtlicher Hinweis';
     this.currentLanguage = 'de';
   }
 
-
-/**
- * The function `switchToEnglish` changes the language to English and updates the UI accordingly.
- */
+  /**
+   * The function `switchToEnglish` changes the language to English and updates the UI accordingly.
+   */
   switchToEnglish() {
     document.getElementById('penglish')?.classList.add('chosen-language');
     document.getElementById('pgerman')?.classList.remove('chosen-language');

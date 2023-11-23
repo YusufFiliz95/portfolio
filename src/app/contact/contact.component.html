@@ -6,7 +6,7 @@
       <p #animatedElement class="contact-form-text">Feel free to reach out and share your ideas. Let's collaborate to
         bring them to life!
       </p>
-      <form class="contact-form" (submit)="sendMail()" #myForm action="https://formspree.io/f/xzblklqe" method="POST">
+      <form class="contact-form" (submit)="sendMail($event)" #myForm action="https://formspree.io/f/xzblklqe" method="POST">
         <div #animatedElement class="form-input-container">
           <img id="nameInputImg" src="assets/img/fullfilled.svg" alt="" class="hide">
           <label id="nameLabel">Your name</label>

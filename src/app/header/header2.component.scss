@@ -209,6 +209,10 @@
 }
 
 @media (max-width: 1850px) {
+  .menu-socials {
+    height: 25%;
+  }
+
   .text-email {
     justify-content: flex-start;
     margin-bottom: 60px;
@@ -257,7 +261,6 @@
     height: 70px;
     justify-content: flex-end;
     margin-right: 20px;
-    margin-bottom: 100px;
   }
 
   .icon {
